@@ -1,122 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider, useAuth } from './context/AuthContext';
+
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
+import ForgotPassword from './pages/Auth/ForgotPassword';
+
+import Home from './pages/Home';
+import FindPsychologist from './pages/FindPsychologist';
+import PsychologistProfile from './pages/PsychologistProfile';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Pricing from './pages/Pricing';
+
+import AdminDashboard from './pages/Admin/Dashboard';
+import AdminUsers from './pages/Admin/Users';
+import AdminPayments from './pages/Admin/Payments';
+import AdminPlans from './pages/Admin/Plans';
+import AdminBlogs from './pages/Admin/Blogs';
+
+import PsychologistDashboard from './pages/Psychologist/Dashboard';
+import PsychologistPatients from './pages/Psychologist/Patients';
+import PsychologistAppointments from './pages/Psychologist/Appointments';
+import PsychologistSession from './pages/Psychologist/SessionNotes';
+import PsychologistProfilePage from './pages/Psychologist/Profile';
+import PsychologistBlog from './pages/Psychologist/Blog';
+
+import PatientDashboard from './pages/Patient/Dashboard';
+import PatientAppointments from './pages/Patient/Appointments';
+import PatientSessions from './pages/Patient/Sessions';
+import VideoCall from './pages/VideoCall';
+
+const ProtectedRoute = ({ children, roles }) => {
+  const { user, loading } = useAuth();
+  if (loading) return <div className="loading-screen"><div className="spinner" /></div>;
+  if (!user) return <Navigate to="/login" />;
+  if (roles && !roles.includes(user.role)) return <Navigate to="/dashboard" />;
+  return children;
+};
+
+const DashboardRedirect = () => {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" />;
+  if (user.role === 'superadmin') return <Navigate to="/admin" />;
+  if (user.role === 'psychologist') return <Navigate to="/psychologist" />;
+  return <Navigate to="/patient" />;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <AuthProvider>
+      <Router>
+        <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/find-psychologist" element={<FindPsychologist />} />
+          <Route path="/psychologist/:id" element={<PsychologistProfile />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/dashboard" element={<ProtectedRoute><DashboardRedirect /></ProtectedRoute>} />
 
-      <div className="ticks"></div>
+          <Route path="/admin" element={<ProtectedRoute roles={['superadmin']}><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/admin/users" element={<ProtectedRoute roles={['superadmin']}><AdminUsers /></ProtectedRoute>} />
+          <Route path="/admin/payments" element={<ProtectedRoute roles={['superadmin']}><AdminPayments /></ProtectedRoute>} />
+          <Route path="/admin/plans" element={<ProtectedRoute roles={['superadmin']}><AdminPlans /></ProtectedRoute>} />
+          <Route path="/admin/blogs" element={<ProtectedRoute roles={['superadmin']}><AdminBlogs /></ProtectedRoute>} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <Route path="/psychologist" element={<ProtectedRoute roles={['psychologist']}><PsychologistDashboard /></ProtectedRoute>} />
+          <Route path="/psychologist/appointments" element={<ProtectedRoute roles={['psychologist']}><PsychologistAppointments /></ProtectedRoute>} />
+          <Route path="/psychologist/patients" element={<ProtectedRoute roles={['psychologist']}><PsychologistPatients /></ProtectedRoute>} />
+          <Route path="/psychologist/sessions" element={<ProtectedRoute roles={['psychologist']}><PsychologistSession /></ProtectedRoute>} />
+          <Route path="/psychologist/profile" element={<ProtectedRoute roles={['psychologist']}><PsychologistProfilePage /></ProtectedRoute>} />
+          <Route path="/psychologist/blog" element={<ProtectedRoute roles={['psychologist']}><PsychologistBlog /></ProtectedRoute>} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <Route path="/patient" element={<ProtectedRoute roles={['patient']}><PatientDashboard /></ProtectedRoute>} />
+          <Route path="/patient/appointments" element={<ProtectedRoute roles={['patient']}><PatientAppointments /></ProtectedRoute>} />
+          <Route path="/patient/sessions" element={<ProtectedRoute roles={['patient']}><PatientSessions /></ProtectedRoute>} />
+
+          <Route path="/video/:appointmentId" element={<ProtectedRoute><VideoCall /></ProtectedRoute>} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
