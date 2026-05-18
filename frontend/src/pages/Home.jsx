@@ -19,14 +19,39 @@ const steps = [
 export default function Home() {
     return (
         <div>
-            <nav style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
-                <span style={{ fontFamily: 'Sora', fontWeight: 700, fontSize: 20, color: 'var(--primary)' }}>LifeInnovior</span>
-                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                    <Link to="/find-psychologist" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 14 }}>Find Psychologist</Link>
-                    <Link to="/blog" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 14 }}>Blog</Link>
-                    <Link to="/pricing" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 14 }}>Pricing</Link>
-                    <Link to="/login" className="btn btn-outline btn-sm">Login</Link>
-                    <Link to="/register" className="btn btn-primary btn-sm">Get Started</Link>
+            <nav style={{ background: '#fff', borderBottom: '0.5px solid #e5e5e5', padding: '0 28px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
+
+                {/* Brand */}
+                <span style={{ fontFamily: 'Sora, sans-serif', fontWeight: 700, fontSize: 20, background: 'linear-gradient(135deg, #534AB7, #1D9E75)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.3px' }}>
+                    LifeInnovior
+                </span>
+
+                {/* Nav Links */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+
+                    <Link to="/find-psychologist" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: 13.5, fontWeight: 500, padding: '6px 13px', borderRadius: 999, border: '1.5px solid #AFA9EC', color: '#534AB7', background: '#EEEDFE' }}>
+                        🧠 Find Psychologist
+                    </Link>
+
+                    <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: 13.5, fontWeight: 500, padding: '6px 13px', borderRadius: 999, border: '1.5px solid #5DCAA5', color: '#0F6E56', background: '#E1F5EE' }}>
+                        📰 Blog
+                    </Link>
+
+                    <Link to="/pricing" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: 13.5, fontWeight: 500, padding: '6px 13px', borderRadius: 999, border: '1.5px solid #EF9F27', color: '#854F0B', background: '#FAEEDA' }}>
+                        🏷️ Pricing
+                    </Link>
+
+                    {/* Divider */}
+                    <div style={{ width: 1, height: 20, background: '#e5e5e5', margin: '0 6px' }} />
+
+                    <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 500, padding: '7px 16px', borderRadius: 8, border: '0.5px solid #ddd', color: '#333', textDecoration: 'none', background: '#fff' }}>
+                        Login
+                    </Link>
+
+                    <Link to="/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, padding: '8px 18px', borderRadius: 8, border: 'none', color: '#fff', textDecoration: 'none', background: '#534AB7' }}>
+                        Get Started →
+                    </Link>
+
                 </div>
             </nav>
 
