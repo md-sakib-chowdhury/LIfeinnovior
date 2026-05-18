@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getMe, login as apiLogin, register as apiRegister } from '../utils/api';
 import toast from 'react-hot-toast';
-
+import React from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
