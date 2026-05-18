@@ -6,27 +6,23 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import ForgotPassword from './pages/Auth/ForgotPassword';
-
 import Home from './pages/Home';
 import FindPsychologist from './pages/FindPsychologist';
 import PsychologistProfile from './pages/PsychologistProfile';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Pricing from './pages/Pricing';
-
 import AdminDashboard from './pages/Admin/Dashboard';
 import AdminUsers from './pages/Admin/Users';
 import AdminPayments from './pages/Admin/Payments';
 import AdminPlans from './pages/Admin/Plans';
 import AdminBlogs from './pages/Admin/Blogs';
-
 import PsychologistDashboard from './pages/Psychologist/Dashboard';
 import PsychologistPatients from './pages/Psychologist/Patients';
 import PsychologistAppointments from './pages/Psychologist/Appointments';
 import PsychologistSession from './pages/Psychologist/SessionNotes';
 import PsychologistProfilePage from './pages/Psychologist/Profile';
 import PsychologistBlog from './pages/Psychologist/Blog';
-
 import PatientDashboard from './pages/Patient/Dashboard';
 import PatientAppointments from './pages/Patient/Appointments';
 import PatientSessions from './pages/Patient/Sessions';
