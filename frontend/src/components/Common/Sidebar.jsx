@@ -88,10 +88,11 @@
 import React from 'react';
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { FiHome, FiUsers, FiCalendar, FiFileText, FiDollarSign, FiBook, FiSettings, FiLogOut, FiList } from 'react-icons/fi';
+import { FiHome, FiUsers, FiCalendar, FiFileText, FiDollarSign, FiBook, FiSettings, FiLogOut, FiList, FiGlobe } from 'react-icons/fi';
 
 const adminNav = [{
     label: 'Overview', items: [
+        { to: '/', icon: FiGlobe, label: 'Home' },
         { to: '/admin', icon: FiHome, label: 'Dashboard' },
         { to: '/admin/users', icon: FiUsers, label: 'Users' },
         { to: '/admin/plans', icon: FiList, label: 'Subscription Plans' },
@@ -103,6 +104,7 @@ const adminNav = [{
 const psychologistNav = [
     {
         label: 'Main', items: [
+            { to: '/', icon: FiGlobe, label: 'Home' },
             { to: '/psychologist', icon: FiHome, label: 'Dashboard' },
             { to: '/psychologist/appointments', icon: FiCalendar, label: 'Appointments' },
             { to: '/psychologist/patients', icon: FiUsers, label: 'My Patients' },
@@ -119,6 +121,7 @@ const psychologistNav = [
 
 const patientNav = [{
     label: 'Main', items: [
+        { to: '/', icon: FiGlobe, label: 'Home' },
         { to: '/patient', icon: FiHome, label: 'Dashboard' },
         { to: '/patient/appointments', icon: FiCalendar, label: 'My Appointments' },
         { to: '/patient/sessions', icon: FiFileText, label: 'Session History' },
