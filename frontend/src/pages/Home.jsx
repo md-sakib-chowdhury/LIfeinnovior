@@ -148,13 +148,14 @@ export default function Home() {
     }, []);
 
     return (
-        <div style={{ fontFamily: "'DM Sans', 'Sora', sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden' }}>
+        <div style={{ fontFamily: "'DM Sans', 'Sora', sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
 
             {/* Google Fonts */}
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@700;800&display=swap');
 
-                * { box-sizing: border-box; margin: 0; padding: 0; }
+                *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+                html, body { overflow-x: hidden; width: 100%; }
 
                 :root {
                     --primary: #534AB7;
@@ -344,6 +345,8 @@ export default function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                width: '100%',
+                boxSizing: 'border-box',
             }}>
                 {/* Blobs */}
                 <div className="blob" style={{ width: 500, height: 500, background: '#534AB7', top: -100, right: -100, opacity: 0.3 }} />
