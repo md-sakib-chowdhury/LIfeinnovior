@@ -152,11 +152,11 @@ export default function Home() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div style={{ fontFamily: "'DM Sans','Sora',sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%' }}>
+        <div style={{ fontFamily: "'DM Sans','Sora',sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@700;800&display=swap');
                 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-                html, body, #root { overflow-x: hidden; width: 100%; }
+                html, body, #root { overflow-x: hidden; width: 100%; max-width: 100%; margin: 0; padding: 0; }
 
                 .inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; width: 100%; }
 
@@ -238,12 +238,10 @@ export default function Home() {
             {/* ── NAV ── */}
             <nav style={{ background: 'rgba(250,250,248,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid #e9e9e5', height: 64, position: 'sticky', top: 0, zIndex: 100, width: '100%' }}>
                 <div className="inner" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    {/* Logo — left aligned naturally */}
                     <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
                         LifeInnovior
                     </Link>
 
-                    {/* Desktop nav — pushed to right end */}
                     <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 'auto' }}>
                         <Link to="/find-psychologist" className="nav-link" style={{ color: '#534AB7', background: '#EEEDFE' }}>🧠 Find Psychologist</Link>
                         <Link to="/blog" className="nav-link" style={{ color: '#0F6E56', background: '#E1F5EE' }}>📰 Blog</Link>
@@ -257,7 +255,6 @@ export default function Home() {
                         >Get Started →</Link>
                     </div>
 
-                    {/* Hamburger — mobile only */}
                     <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" style={{ marginLeft: 'auto' }}>
                         <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
                         <span style={{ opacity: menuOpen ? 0 : 1 }} />
@@ -276,7 +273,22 @@ export default function Home() {
             </div>
 
             {/* ── HERO ── */}
-            <div className="hero-section" style={{ background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 40%,#0f5e48 100%)', padding: '100px 0 80px', position: 'relative', overflow: 'hidden', minHeight: '88vh', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+            <div
+                className="hero-section"
+                style={{
+                    background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 40%,#0f5e48 100%)',
+                    padding: '100px 0 80px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    minHeight: '88vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100vw',
+                    marginLeft: 'calc(-50vw + 50%)',
+                    marginRight: 'calc(-50vw + 50%)',
+                }}
+            >
                 <div className="blob" style={{ width: 500, height: 500, background: '#534AB7', top: -100, right: -100, opacity: 0.3 }} />
                 <div className="blob" style={{ width: 400, height: 400, background: '#1D9E75', bottom: -80, left: 50, opacity: 0.25 }} />
                 <div className="blob" style={{ width: 300, height: 300, background: '#D85A30', bottom: 50, right: 200, opacity: 0.15 }} />
@@ -303,7 +315,6 @@ export default function Home() {
                             <Link to="/register" className="pill-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Join as Psychologist →</Link>
                         </div>
 
-                        {/* Stats — number on top, label below */}
                         <div className="stats-grid fade-up delay-4">
                             {stats.map(s => (
                                 <div key={s.label} className="stat-card">
@@ -430,4 +441,3 @@ export default function Home() {
         </div>
     );
 }
-
