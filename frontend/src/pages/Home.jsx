@@ -234,7 +234,7 @@ export default function Home() {
                 }
             `}</style>
             {/* ── NAV ── */}
-            <nav style={{
+            {/* <nav style={{
                 background: 'rgba(250,250,248,0.9)',
                 backdropFilter: 'blur(16px)',
                 borderBottom: '1px solid #e9e9e5',
@@ -253,6 +253,28 @@ export default function Home() {
                     marginLeft: '50%',
                     transform: 'translateX(-50%)',
                     padding: '0'
+                }}> */}
+            <nav style={{
+                background: ' rgba(250,250,248,0.9)',
+                backdropFilter: 'blur(16px)',
+                height: 64,
+                position: 'sticky',
+                top: 0,
+                zIndex: 100,
+                width: '95vw',           // ← 90vw
+                marginLeft: '50%',       // ← center
+                transform: 'translateX(-50%)',  // ← center
+                borderBottom: 'none',
+            }}>
+                <div style={{
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '95vw',
+                    marginLeft: '50%',
+                    transform: 'translateX(-50%)',
+                    borderBottom: '1px solid #e9e9e5',  // ← inner div এ দাও
                 }}>
                     {/* LEFT — Logo একদম বাম কোণে */}
                     <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
@@ -281,7 +303,7 @@ export default function Home() {
                     </button>
                 </div>
             </nav>
-           
+
 
             {/* Mobile menu */}
             <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
