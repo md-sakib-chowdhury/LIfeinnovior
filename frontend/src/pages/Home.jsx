@@ -113,7 +113,6 @@
 //         </div>
 //     );
 // }
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -234,34 +233,55 @@ export default function Home() {
                     .pill-btn { padding: 11px 16px; font-size: 13px; }
                 }
             `}</style>
-
             {/* ── NAV ── */}
-            <nav style={{ background: 'rgba(250,250,248,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid #e9e9e5', height: 64, position: 'sticky', top: 0, zIndex: 100, width: '100%' }}>
-                <div className="inner" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <nav style={{
+                background: 'rgba(250,250,248,0.9)',
+                backdropFilter: 'blur(16px)',
+                borderBottom: '1px solid #e9e9e5',
+                height: 64,
+                position: 'sticky',
+                top: 0,
+                zIndex: 100,
+                width: '100%'
+            }}>
+                <div style={{
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '95vw',
+                    marginLeft: '50%',
+                    transform: 'translateX(-50%)',
+                    padding: '0'
+                }}>
+                    {/* LEFT — Logo একদম বাম কোণে */}
                     <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
                         LifeInnovior
                     </Link>
 
-                    <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 'auto' }}>
-                        <Link to="/find-psychologist" className="nav-link" style={{ color: '#534AB7', background: '#EEEDFE' }}>🧠 Find Psychologist</Link>
-                        <Link to="/blog" className="nav-link" style={{ color: '#0F6E56', background: '#E1F5EE' }}>📰 Blog</Link>
-                        <Link to="/pricing" className="nav-link" style={{ color: '#854F0B', background: '#FAEEDA' }}>🏷️ Pricing</Link>
+                    {/* RIGHT — সব items একদম ডান কোণে */}
+                    <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <Link to="/find-psychologist" className="nav-link" style={{ color: '#fff', background: '#1e1b4b' }}>🧠 Find Psychologist</Link>
+                        <Link to="/blog" className="nav-link" style={{ color: '#fff', background: '#0f2820' }}>📰 Blog</Link>
+                        <Link to="/pricing" className="nav-link" style={{ color: '#fff', background: '#1c1007' }}>🏷️ Pricing</Link>
                         <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
-                        <Link to="/login" className="nav-link" style={{ color: '#555', border: '1px solid #e9e9e5', background: '#fff' }}>Login</Link>
+                        <Link to="/login" className="nav-link" style={{ color: '#fff', border: '1px solid #333', background: '#111' }}>Login</Link>
                         <Link to="/register"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: '#534AB7', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', marginLeft: 4 }}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: '#0f0f0f', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', border: '1px solid #333' }}
                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.35)'; }}
                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                         >Get Started →</Link>
                     </div>
 
-                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" style={{ marginLeft: 'auto' }}>
+                    {/* Hamburger — mobile only */}
+                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
                         <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
                         <span style={{ opacity: menuOpen ? 0 : 1 }} />
                         <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
                     </button>
                 </div>
             </nav>
+           
 
             {/* Mobile menu */}
             <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
@@ -284,9 +304,9 @@ export default function Home() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '100vw',
-                    marginLeft: 'calc(-50vw + 50%)',
-                    marginRight: 'calc(-50vw + 50%)',
+                    width: '95vw',
+                    marginLeft: '50%',
+                    transform: 'translateX(-50%)',
                 }}
             >
                 <div className="blob" style={{ width: 500, height: 500, background: '#534AB7', top: -100, right: -100, opacity: 0.3 }} />
