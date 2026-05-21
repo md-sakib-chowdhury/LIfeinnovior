@@ -162,7 +162,7 @@ export default function Home() {
                 .nav-link { text-decoration: none; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 999px; transition: all 0.2s; white-space: nowrap; }
 
                 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-                .hamburger span { display: block; width: 22px; height: 2px; background: #534AB7; border-radius: 2px; }
+                .hamburger span { display: block; width: 22px; height: 2px; background: #534AB7; border-radius: 2px; transition: all 0.3s; }
 
                 .mobile-menu { display: none; flex-direction: column; background: rgba(250,250,248,0.98); border-bottom: 1px solid #e9e9e5; }
                 .mobile-menu.open { display: flex; }
@@ -173,7 +173,7 @@ export default function Home() {
                 .feature-card { background: #fff; border-radius: 20px; border: 1px solid #e9e9e5; padding: 28px; transition: transform 0.25s, box-shadow 0.25s; cursor: default; position: relative; overflow: hidden; }
                 .feature-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
 
-                .stat-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 20px; text-align: center; backdrop-filter: blur(8px); }
+                .stat-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 20px 16px; text-align: center; backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
 
                 .pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
                 .pill-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
@@ -196,60 +196,68 @@ export default function Home() {
                 .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; position: relative; }
                 .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-                /* Responsive */
+                /* ── RESPONSIVE ── */
                 @media (max-width: 1200px) {
                     .inner { padding: 0 32px; }
+                    .cta-inner { margin: 0 32px 80px !important; }
                 }
                 @media (max-width: 900px) {
                     .inner { padding: 0 24px; }
                     .features-grid { grid-template-columns: repeat(2,1fr); }
                     .steps-grid { grid-template-columns: 1fr; gap: 40px; }
-                    .stats-grid { grid-template-columns: repeat(2,1fr); }
+                    .steps-grid > div > div[style*="position: absolute"] { display: none; }
                     .nav-desktop { display: none !important; }
                     .hamburger { display: flex !important; }
-                    .hero-title { letter-spacing: -1px; }
-                    .cta-inner { padding: 60px 24px !important; margin: 0 16px 60px !important; }
+                    .cta-inner { margin: 0 24px 60px !important; padding: 60px 28px !important; }
+                }
+                @media (max-width: 768px) {
+                    .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 48px; }
+                    .stat-card { padding: 18px 12px; }
+                    .stat-value { font-size: 22px !important; }
                 }
                 @media (max-width: 600px) {
                     .inner { padding: 0 16px; }
                     .features-grid { grid-template-columns: 1fr; }
-                    .stats-grid { grid-template-columns: repeat(2,1fr); }
                     .pill-btn { padding: 12px 20px; font-size: 14px; }
-                    .hero-section { padding: 70px 16px 60px !important; min-height: auto !important; }
+                    .hero-section { padding: 70px 0 60px !important; min-height: auto !important; }
                     .section-pad { padding: 60px 0 !important; }
                     .footer-cols { flex-direction: column !important; gap: 32px !important; }
-                    .footer-links { flex-wrap: wrap !important; gap: 32px !important; }
-                    .cta-inner { border-radius: 20px !important; padding: 48px 20px !important; margin: 0 12px 48px !important; }
+                    .footer-links { flex-wrap: wrap !important; gap: 28px !important; }
+                    .cta-inner { margin: 0 12px 48px !important; border-radius: 20px !important; padding: 48px 20px !important; }
                     .cta-btns { flex-direction: column !important; align-items: center !important; }
+                    .hero-title { letter-spacing: -1px; }
+                    .cta-h2 { font-size: 32px !important; }
                 }
                 @media (max-width: 400px) {
                     .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+                    .pill-btn { padding: 11px 16px; font-size: 13px; }
                 }
             `}</style>
 
             {/* ── NAV ── */}
             <nav style={{ background: 'rgba(250,250,248,0.9)', backdropFilter: 'blur(16px)', borderBottom: '1px solid #e9e9e5', height: 64, position: 'sticky', top: 0, zIndex: 100, width: '100%' }}>
                 <div className="inner" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
+                    {/* Logo — left aligned naturally */}
+                    <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
                         LifeInnovior
-                    </span>
+                    </Link>
 
-                    {/* Desktop links */}
-                    <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                    {/* Desktop nav — pushed to right end */}
+                    <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 'auto' }}>
                         <Link to="/find-psychologist" className="nav-link" style={{ color: '#534AB7', background: '#EEEDFE' }}>🧠 Find Psychologist</Link>
                         <Link to="/blog" className="nav-link" style={{ color: '#0F6E56', background: '#E1F5EE' }}>📰 Blog</Link>
                         <Link to="/pricing" className="nav-link" style={{ color: '#854F0B', background: '#FAEEDA' }}>🏷️ Pricing</Link>
                         <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
                         <Link to="/login" className="nav-link" style={{ color: '#555', border: '1px solid #e9e9e5', background: '#fff' }}>Login</Link>
                         <Link to="/register"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: '#534AB7', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s' }}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: '#534AB7', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', marginLeft: 4 }}
                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.35)'; }}
                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                         >Get Started →</Link>
                     </div>
 
-                    {/* Hamburger */}
-                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+                    {/* Hamburger — mobile only */}
+                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" style={{ marginLeft: 'auto' }}>
                         <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
                         <span style={{ opacity: menuOpen ? 0 : 1 }} />
                         <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
@@ -273,7 +281,6 @@ export default function Home() {
                 <div className="blob" style={{ width: 300, height: 300, background: '#D85A30', bottom: 50, right: 200, opacity: 0.15 }} />
                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px)', backgroundSize: '32px 32px', pointerEvents: 'none' }} />
 
-                {/* Hero content constrained to same inner width as nav */}
                 <div className="inner" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto' }}>
                         <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 999, padding: '6px 16px', marginBottom: 28, fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.85)' }}>
@@ -295,11 +302,12 @@ export default function Home() {
                             <Link to="/register" className="pill-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Join as Psychologist →</Link>
                         </div>
 
+                        {/* Stats — number on top, label below */}
                         <div className="stats-grid fade-up delay-4">
                             {stats.map(s => (
                                 <div key={s.label} className="stat-card">
-                                    <div style={{ fontSize: 26, fontFamily: 'Sora,sans-serif', fontWeight: 800, color: '#fff', marginBottom: 4 }}>{s.value}</div>
-                                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{s.label}</div>
+                                    <div className="stat-value" style={{ fontSize: 28, fontFamily: 'Sora,sans-serif', fontWeight: 800, color: '#fff' }}>{s.value}</div>
+                                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontWeight: 500, lineHeight: 1.4 }}>{s.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -375,7 +383,7 @@ export default function Home() {
                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 999, padding: '5px 16px', fontSize: 12, fontWeight: 600, color: '#9F99E8', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: 24 }}>Free 14-day trial</div>
-                    <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 46, fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', marginBottom: 16 }}>Ready to Get Started?</h2>
+                    <h2 className="cta-h2" style={{ fontFamily: 'Sora,sans-serif', fontSize: 46, fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', marginBottom: 16 }}>Ready to Get Started?</h2>
                     <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.65)', maxWidth: 420, margin: '0 auto 40px' }}>
                         Join LifeInnovior today. Free 14-day trial for psychologists. No credit card required.
                     </p>
