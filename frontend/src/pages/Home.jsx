@@ -113,7 +113,7 @@
 //         </div>
 //     );
 // }
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const features = [
@@ -148,9 +148,8 @@ export default function Home() {
     }, []);
 
     return (
-        <div style={{ fontFamily: "'DM Sans', 'Sora', sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
+        <div style={{ fontFamily: "'DM Sans', 'Sora', sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%' }}>
 
-            {/* Google Fonts */}
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@700;800&display=swap');
 
@@ -211,16 +210,6 @@ export default function Home() {
                     padding: 24px 28px;
                     text-align: center;
                     backdrop-filter: blur(8px);
-                }
-
-                .step-line {
-                    position: absolute;
-                    top: 28px;
-                    left: calc(50% + 28px);
-                    width: calc(100% - 56px);
-                    height: 1px;
-                    background: linear-gradient(90deg, #534AB7, #1D9E75);
-                    opacity: 0.25;
                 }
 
                 .pill-btn {
@@ -293,45 +282,52 @@ export default function Home() {
                 background: 'rgba(250,250,248,0.85)',
                 backdropFilter: 'blur(16px)',
                 borderBottom: '1px solid #e9e9e5',
-                padding: '0 32px',
                 height: 64,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
                 position: 'sticky',
                 top: 0,
                 zIndex: 100,
+                width: '100%',
             }}>
-                <span style={{
-                    fontFamily: 'Sora, sans-serif',
-                    fontWeight: 800,
-                    fontSize: 20,
-                    background: 'linear-gradient(135deg, #534AB7 0%, #1D9E75 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    letterSpacing: '-0.5px'
+                <div style={{
+                    maxWidth: 1100,
+                    margin: '0 auto',
+                    padding: '0 32px',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
                 }}>
-                    LifeInnovior
-                </span>
+                    <span style={{
+                        fontFamily: 'Sora, sans-serif',
+                        fontWeight: 800,
+                        fontSize: 20,
+                        background: 'linear-gradient(135deg, #534AB7 0%, #1D9E75 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        letterSpacing: '-0.5px'
+                    }}>
+                        LifeInnovior
+                    </span>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <Link to="/find-psychologist" className="nav-link" style={{ color: '#534AB7', background: '#EEEDFE' }}>🧠 Find Psychologist</Link>
-                    <Link to="/blog" className="nav-link" style={{ color: '#0F6E56', background: '#E1F5EE' }}>📰 Blog</Link>
-                    <Link to="/pricing" className="nav-link" style={{ color: '#854F0B', background: '#FAEEDA' }}>🏷️ Pricing</Link>
-                    <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
-                    <Link to="/login" className="nav-link" style={{ color: '#555', border: '1px solid #e9e9e5', background: '#fff' }}>Login</Link>
-                    <Link to="/register" style={{
-                        display: 'inline-flex', alignItems: 'center', gap: 6,
-                        fontSize: 14, fontWeight: 600, padding: '8px 20px',
-                        borderRadius: 10, background: '#534AB7', color: '#fff', textDecoration: 'none',
-                        transition: 'transform 0.2s, box-shadow 0.2s',
-                    }}
-                        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.35)'; }}
-                        onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
-                    >
-                        Get Started →
-                    </Link>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <Link to="/find-psychologist" className="nav-link" style={{ color: '#534AB7', background: '#EEEDFE' }}>🧠 Find Psychologist</Link>
+                        <Link to="/blog" className="nav-link" style={{ color: '#0F6E56', background: '#E1F5EE' }}>📰 Blog</Link>
+                        <Link to="/pricing" className="nav-link" style={{ color: '#854F0B', background: '#FAEEDA' }}>🏷️ Pricing</Link>
+                        <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
+                        <Link to="/login" className="nav-link" style={{ color: '#555', border: '1px solid #e9e9e5', background: '#fff' }}>Login</Link>
+                        <Link to="/register" style={{
+                            display: 'inline-flex', alignItems: 'center', gap: 6,
+                            fontSize: 14, fontWeight: 600, padding: '8px 20px',
+                            borderRadius: 10, background: '#534AB7', color: '#fff', textDecoration: 'none',
+                            transition: 'transform 0.2s, box-shadow 0.2s',
+                        }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.35)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+                        >
+                            Get Started →
+                        </Link>
+                    </div>
                 </div>
             </nav>
 
@@ -348,12 +344,10 @@ export default function Home() {
                 width: '100%',
                 boxSizing: 'border-box',
             }}>
-                {/* Blobs */}
                 <div className="blob" style={{ width: 500, height: 500, background: '#534AB7', top: -100, right: -100, opacity: 0.3 }} />
                 <div className="blob" style={{ width: 400, height: 400, background: '#1D9E75', bottom: -80, left: 50, opacity: 0.25 }} />
                 <div className="blob" style={{ width: 300, height: 300, background: '#D85A30', bottom: 50, right: 200, opacity: 0.15 }} />
 
-                {/* Dot grid overlay */}
                 <div style={{
                     position: 'absolute', inset: 0,
                     backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)',
@@ -361,9 +355,8 @@ export default function Home() {
                     pointerEvents: 'none',
                 }} />
 
-                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, maxWidth: 820 }}>
+                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, maxWidth: 820, width: '100%' }}>
 
-                    {/* Badge */}
                     <div className="fade-up" style={{
                         display: 'inline-flex', alignItems: 'center', gap: 8,
                         background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
@@ -397,7 +390,6 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* Stats row */}
                     <div className="fade-up delay-4" style={{
                         display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: 12, marginTop: 64
@@ -412,7 +404,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* MARQUEE TESTIMONIALS */}
+            {/* MARQUEE */}
             <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '18px 0', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', gap: 12, overflow: 'hidden' }}>
                     <div className="marquee-track">
@@ -440,7 +432,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* FEATURES SECTION */}
+            {/* FEATURES */}
             <div style={{ padding: '100px 32px', background: '#FAFAF8' }}>
                 <div style={{ maxWidth: 1100, margin: '0 auto' }}>
                     <div style={{ textAlign: 'center', marginBottom: 60 }}>
@@ -452,7 +444,7 @@ export default function Home() {
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
-                        {features.map((f, i) => (
+                        {features.map((f) => (
                             <div key={f.title} className="feature-card">
                                 <div style={{
                                     position: 'absolute', top: 0, right: 0,
@@ -486,7 +478,7 @@ export default function Home() {
 
             {/* HOW IT WORKS */}
             <div style={{ padding: '100px 32px', background: '#fff' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                <div style={{ maxWidth: 1100, margin: '0 auto' }}>
                     <div style={{ textAlign: 'center', marginBottom: 72 }}>
                         <div style={{ display: 'inline-block', background: '#E1F5EE', color: '#0F6E56', fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 999, marginBottom: 16, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                             Simple Process
