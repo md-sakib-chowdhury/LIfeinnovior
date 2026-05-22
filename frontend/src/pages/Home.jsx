@@ -369,7 +369,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* ── MARQUEE ── */}
+            {/* ── MARQUEE ──
             <div style={{ background: '#fff', borderBottom: '1px solid #e9e9e5', padding: '18px 0', overflow: 'hidden' }}>
                 <div style={{ display: 'flex', gap: 12, overflow: 'hidden' }}>
                     <div className="marquee-track">
@@ -381,6 +381,28 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </div> */}
+            {/* ── MARQUEE ── */}
+            <div style={{
+                background: '#fff',
+                borderBottom: '1px solid #e9e9e5',
+                padding: '18px 0',
+                width: '95vw',
+                maxWidth: '95vw',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+                overflow: 'hidden',
+                boxSizing: 'border-box',
+            }}>
+                <div className="marquee-track">
+                    {[...testimonials, ...testimonials].map((t, i) => (
+                        <div key={i} className="testimonial-chip">
+                            <span style={{ fontSize: 16 }}>{t.emoji}</span>
+                            <span style={{ color: '#6b7280', fontWeight: 400 }}>{t.text}</span>
+                            <span style={{ fontSize: 12, color: '#aaa' }}>— {t.name}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
