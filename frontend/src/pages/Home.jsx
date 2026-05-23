@@ -505,5 +505,428 @@
 //         </div>
 //     );
 // }
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
+const features = [
+    { icon: '🎥', title: 'Video Therapy', desc: 'Secure HD video sessions from the comfort of your home.', accent: 'rgba(52,211,153,0.12)', border: 'rgba(52,211,153,0.3)', color: '#34d399', tag: 'Live Sessions' },
+    { icon: '📅', title: 'Easy Booking', desc: 'Book appointments with licensed psychologists in minutes.', accent: 'rgba(167,139,250,0.12)', border: 'rgba(167,139,250,0.3)', color: '#a78bfa', tag: 'Instant' },
+    { icon: '📋', title: 'Session Notes', desc: 'Psychologists maintain detailed, confidential session records.', accent: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)', color: '#fbbf24', tag: 'Private' },
+    { icon: '💳', title: 'Flexible Plans', desc: 'Affordable subscription plans for every practice size.', accent: 'rgba(249,115,22,0.1)', border: 'rgba(249,115,22,0.25)', color: '#fb923c', tag: 'From $29' },
+    { icon: '🔒', title: 'Fully Secure', desc: 'Your data is encrypted and protected at every step.', accent: 'rgba(16,185,129,0.1)', border: 'rgba(16,185,129,0.25)', color: '#10b981', tag: 'E2E Encrypted' },
+    { icon: '📱', title: 'Any Device', desc: 'Works seamlessly on mobile, tablet, and desktop.', accent: 'rgba(59,130,246,0.1)', border: 'rgba(59,130,246,0.25)', color: '#60a5fa', tag: 'Cross-platform' },
+];
+
+const steps = [
+    { step: '01', title: 'Find a Psychologist', desc: 'Browse verified psychologists by specialization, language, and availability.', gradient: 'linear-gradient(135deg,#7c3aed,#4f46e5)', shadow: 'rgba(124,58,237,0.4)' },
+    { step: '02', title: 'Book a Session', desc: 'Choose a time slot that works for you and confirm your booking in seconds.', gradient: 'linear-gradient(135deg,#059669,#10b981)', shadow: 'rgba(16,185,129,0.4)' },
+    { step: '03', title: 'Start Your Journey', desc: 'Join a secure video call and take the first step toward better mental health.', gradient: 'linear-gradient(135deg,#d97706,#f59e0b)', shadow: 'rgba(245,158,11,0.4)' },
+];
+
+const stats = [
+    { value: '12K+', label: 'Patients Helped' },
+    { value: '800+', label: 'Licensed Psychologists' },
+    { value: '98%', label: 'Satisfaction Rate' },
+    { value: '4.9★', label: 'Average Rating' },
+];
+
+const testimonials = [
+    { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
+    { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
+    { name: 'Priya K.', text: 'Feels like real in-person therapy', emoji: '💙', color: 'teal' },
+    { name: 'Omar S.', text: 'Changed my life in just 4 sessions', emoji: '🌿', color: 'teal' },
+    { name: 'Lena W.', text: "The most secure platform I've used", emoji: '🔐', color: 'purple' },
+    { name: 'Carlos D.', text: 'Perfect for my busy schedule', emoji: '⚡', color: 'amber' },
+    { name: 'Sofia T.', text: 'My anxiety is so much better now', emoji: '🌺', color: 'pink' },
+    { name: 'Ravi M.', text: 'Found the perfect specialist within minutes', emoji: '🧠', color: 'purple' },
+];
+
+export default function Home() {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    return (
+        <div style={{ fontFamily: "'DM Sans','Sora',sans-serif", background: '#06060a', color: '#f0eff8', overflowX: 'hidden', width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@700;800&display=swap');
+                *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+                html, body, #root { overflow-x: hidden; width: 100%; max-width: 100%; margin: 0; padding: 0; background: #06060a; }
+
+                .inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; width: 100%; }
+
+                .nav-link {
+                    text-decoration: none; font-size: 13.5px; font-weight: 500;
+                    padding: 6px 14px; border-radius: 999px; transition: all 0.2s;
+                    white-space: nowrap;
+                }
+
+                .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+                .hamburger span { display: block; width: 22px; height: 2px; background: #a78bfa; border-radius: 2px; transition: all 0.3s; }
+
+                .mobile-menu { display: none; flex-direction: column; background: #0d0d14; border-bottom: 1px solid rgba(167,139,250,0.2); }
+                .mobile-menu.open { display: flex; }
+                .mobile-menu a { text-decoration: none; font-size: 15px; font-weight: 500; color: #f0eff8; padding: 13px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+                .hero-title {
+                    font-family: 'Sora', sans-serif;
+                    font-size: clamp(32px, 5.5vw, 72px);
+                    font-weight: 800;
+                    line-height: 1.06;
+                    letter-spacing: -2.5px;
+                    color: #f0eff8;
+                    margin-bottom: 24px;
+                }
+                .hero-title span {
+                    background: linear-gradient(135deg, #a78bfa 0%, #34d399 60%, #f59e0b 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+
+                .pill-btn {
+                    display: inline-flex; align-items: center; gap: 8px;
+                    padding: 14px 30px; border-radius: 999px;
+                    font-size: 15px; font-weight: 600;
+                    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+                    cursor: pointer; border: none;
+                }
+                .pill-btn:hover { transform: translateY(-2px); }
+                .pill-btn-primary {
+                    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+                    color: #fff;
+                    box-shadow: 0 0 40px rgba(124,58,237,0.5);
+                }
+                .pill-btn-primary:hover { box-shadow: 0 0 60px rgba(124,58,237,0.7); }
+                .pill-btn-secondary {
+                    background: rgba(255,255,255,0.05);
+                    color: #f0eff8;
+                    border: 1.5px solid rgba(255,255,255,0.15) !important;
+                }
+
+                .stat-card {
+                    background: rgba(255,255,255,0.04);
+                    border: 1px solid rgba(255,255,255,0.08);
+                    border-radius: 16px;
+                    padding: 18px 12px;
+                    text-align: center;
+                }
+
+                .feature-card {
+                    background: #0d0d14;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px;
+                    padding: 28px;
+                    position: relative;
+                    overflow: hidden;
+                    transition: border-color 0.3s, transform 0.3s;
+                    cursor: default;
+                }
+                .feature-card:hover {
+                    border-color: rgba(167,139,250,0.4);
+                    transform: translateY(-5px);
+                }
+
+                /* ── MARQUEE ── */
+                .mq-track-fwd { display:flex; gap:10px; width:max-content; animation:mq-fwd 28s linear infinite; }
+                .mq-track-rev { display:flex; gap:10px; width:max-content; animation:mq-rev 32s linear infinite; }
+                @keyframes mq-fwd { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+                @keyframes mq-rev { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+
+                .t-chip { display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border-radius:999px; white-space:nowrap; flex-shrink:0; font-size:13px; font-weight:500; border:1px solid; transition:transform .2s; }
+                .t-chip:hover { transform:scale(1.04); }
+                .chip-purple { background:rgba(167,139,250,0.08); border-color:rgba(167,139,250,0.22); color:rgba(240,239,248,0.8); }
+                .chip-teal   { background:rgba(52,211,153,0.08);  border-color:rgba(52,211,153,0.22);  color:rgba(240,239,248,0.8); }
+                .chip-amber  { background:rgba(251,191,36,0.08);  border-color:rgba(251,191,36,0.22);  color:rgba(240,239,248,0.8); }
+                .chip-pink   { background:rgba(244,114,182,0.08); border-color:rgba(244,114,182,0.22); color:rgba(240,239,248,0.8); }
+
+                .chip-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+                .dot-purple { background:#a78bfa; box-shadow:0 0 8px #a78bfa; }
+                .dot-teal   { background:#34d399; box-shadow:0 0 8px #34d399; }
+                .dot-amber  { background:#fbbf24; box-shadow:0 0 8px #fbbf24; }
+                .dot-pink   { background:#f472b6; box-shadow:0 0 8px #f472b6; }
+
+                @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+                .fade-up { animation: fadeUp 0.7s ease forwards; }
+                .delay-1 { animation-delay: 0.1s; }
+                .delay-2 { animation-delay: 0.2s; }
+                .delay-3 { animation-delay: 0.3s; }
+                .delay-4 { animation-delay: 0.4s; }
+
+                .stats-grid    { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 60px; }
+                .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 60px; }
+                .steps-grid    { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 72px; }
+                .hero-btns     { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+                @media (max-width: 1200px) { .inner { padding: 0 32px; } .cta-inner { margin: 0 32px 80px !important; } }
+                @media (max-width: 900px) {
+                    .inner { padding: 0 24px; }
+                    .features-grid { grid-template-columns: repeat(2,1fr); }
+                    .steps-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .nav-desktop { display: none !important; }
+                    .hamburger { display: flex !important; }
+                    .cta-inner { margin: 0 24px 60px !important; padding: 60px 28px !important; }
+                }
+                @media (max-width: 768px) {
+                    .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 40px; }
+                }
+                @media (max-width: 600px) {
+                    .inner { padding: 0 16px; }
+                    .features-grid { grid-template-columns: 1fr; }
+                    .pill-btn { padding: 12px 20px; font-size: 14px; }
+                    .hero-section { padding: 70px 0 60px !important; min-height: auto !important; }
+                    .section-pad { padding: 60px 0 !important; }
+                    .footer-cols { flex-direction: column !important; gap: 32px !important; }
+                    .footer-links { flex-wrap: wrap !important; gap: 28px !important; }
+                    .cta-inner { margin: 0 12px 48px !important; border-radius: 20px !important; padding: 48px 20px !important; }
+                    .cta-btns { flex-direction: column !important; align-items: center !important; }
+                    .hero-title { letter-spacing: -1px; }
+                    .cta-h2 { font-size: 32px !important; }
+                }
+            `}</style>
+
+            {/* ── NAV ── */}
+            <nav style={{
+                background: 'rgba(6,6,10,0.85)',
+                backdropFilter: 'blur(20px)',
+                borderBottom: '1px solid rgba(139,92,246,0.2)',
+                height: 64,
+                position: 'sticky',
+                top: 0,
+                zIndex: 100,
+                width: '95vw',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+            }}>
+                <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '95vw', marginLeft: '50%', transform: 'translateX(-50%)', padding: '0 40px' }}>
+                    <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#a78bfa,#34d399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
+                        LifeInnovior
+                    </Link>
+                    <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <Link to="/find-psychologist" className="nav-link" style={{ background: 'rgba(167,139,250,0.12)', border: '1px solid rgba(167,139,250,0.3)', color: '#c4b5fd' }}>🧠 Find Psychologist</Link>
+                        <Link to="/blog" className="nav-link" style={{ background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.25)', color: '#6ee7b7' }}>📰 Blog</Link>
+                        <Link to="/pricing" className="nav-link" style={{ background: 'rgba(251,191,36,0.1)', border: '1px solid rgba(251,191,36,0.25)', color: '#fde68a' }}>🏷️ Pricing</Link>
+                        <div style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.08)', margin: '0 8px' }} />
+                        <Link to="/login" style={{ display: 'inline-flex', alignItems: 'center', fontSize: 13.5, fontWeight: 500, padding: '7px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.12)', color: '#e2e8f0', textDecoration: 'none', background: 'rgba(255,255,255,0.06)' }}>Login</Link>
+                        <Link to="/register"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13.5, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: 'linear-gradient(135deg,#7c3aed,#4f46e5)', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', border: 'none' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(124,58,237,0.5)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+                        >Get Started →</Link>
+                    </div>
+                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+                        <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+                        <span style={{ opacity: menuOpen ? 0 : 1 }} />
+                        <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+                    </button>
+                </div>
+            </nav>
+
+            {/* Mobile menu */}
+            <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+                <Link to="/find-psychologist" onClick={() => setMenuOpen(false)}>🧠 Find Psychologist</Link>
+                <Link to="/blog" onClick={() => setMenuOpen(false)}>📰 Blog</Link>
+                <Link to="/pricing" onClick={() => setMenuOpen(false)}>🏷️ Pricing</Link>
+                <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+                <Link to="/register" onClick={() => setMenuOpen(false)} style={{ color: '#a78bfa', fontWeight: 700 }}>Get Started →</Link>
+            </div>
+
+            {/* ── HERO ── */}
+            <div
+                className="hero-section"
+                style={{
+                    background: '#06060a',
+                    padding: '100px 0 80px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    minHeight: '88vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '95vw',
+                    marginLeft: '50%',
+                    transform: 'translateX(-50%)',
+                }}
+            >
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(109,40,217,0.4) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 80% 80%, rgba(16,185,129,0.2) 0%, transparent 60%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(167,139,250,0.15) 1px, transparent 1px)', backgroundSize: '28px 28px', pointerEvents: 'none' }} />
+
+                <div className="inner" style={{ position: 'relative', zIndex: 1 }}>
+                    <div style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto' }}>
+                        <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.3)', borderRadius: 999, padding: '6px 16px', marginBottom: 28, fontSize: 12.5, fontWeight: 500, color: '#c4b5fd' }}>
+                            <span style={{ width: 7, height: 7, background: '#34d399', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 10px #34d399' }} />
+                            Trusted by 12,000+ patients worldwide
+                        </div>
+                        <h1 className="hero-title fade-up delay-1">
+                            Mental Health Care,<br />
+                            <span>Made Accessible</span>
+                        </h1>
+                        <p className="fade-up delay-2" style={{ fontSize: 18, color: 'rgba(240,239,248,0.55)', margin: '0 auto 40px', maxWidth: 520, lineHeight: 1.75, fontWeight: 400 }}>
+                            Connect with licensed psychologists through secure video sessions. Professional care from the comfort of your home.
+                        </p>
+                        <div className="hero-btns fade-up delay-3" style={{ marginBottom: 60 }}>
+                            <Link to="/find-psychologist" className="pill-btn pill-btn-primary">🧠 Find a Psychologist</Link>
+                            <Link to="/register" className="pill-btn pill-btn-secondary">Join as Psychologist →</Link>
+                        </div>
+                        <div className="stats-grid fade-up delay-4">
+                            {stats.map(s => (
+                                <div key={s.label} className="stat-card">
+                                    <div style={{ fontFamily: 'Sora,sans-serif', fontSize: 26, fontWeight: 800, background: 'linear-gradient(135deg,#a78bfa,#34d399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{s.value}</div>
+                                    <div style={{ fontSize: 11.5, color: 'rgba(240,239,248,0.4)', marginTop: 4, fontWeight: 500 }}>{s.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── MARQUEE ── */}
+            <div style={{
+                position: 'relative',
+                background: '#06060a',
+                padding: '28px 0',
+                overflow: 'hidden',
+                borderTop: '1px solid rgba(167,139,250,0.12)',
+                borderBottom: '1px solid rgba(167,139,250,0.12)',
+                width: '95vw',
+                maxWidth: '95vw',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+                boxSizing: 'border-box',
+            }}>
+                {/* purple glow */}
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 100% at 50% 50%, rgba(109,40,217,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                {/* fade edges */}
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #06060a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #06060a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+                {/* label */}
+                <div style={{ textAlign: 'center', fontSize: 10.5, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(167,139,250,0.4)', marginBottom: 18, position: 'relative', zIndex: 3 }}>
+                    What our patients are saying
+                </div>
+
+                {/* Row 1 — forward */}
+                <div style={{ overflow: 'hidden', marginBottom: 12 }}>
+                    <div className="mq-track-fwd">
+                        {[...testimonials.slice(0, 6), ...testimonials.slice(0, 6)].map((t, i) => (
+                            <div key={i} className={`t-chip chip-${t.color}`}>
+                                <span className={`chip-dot dot-${t.color}`} />
+                                <span style={{ fontSize: 15 }}>{t.emoji}</span>
+                                <span>{t.text}</span>
+                                <span style={{ fontSize: 11, color: 'rgba(240,239,248,0.3)' }}>— {t.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Row 2 — reverse */}
+                <div style={{ overflow: 'hidden' }}>
+                    <div className="mq-track-rev">
+                        {[...testimonials.slice(2), ...testimonials.slice(2)].map((t, i) => (
+                            <div key={i} className={`t-chip chip-${t.color}`}>
+                                <span className={`chip-dot dot-${t.color}`} />
+                                <span style={{ fontSize: 15 }}>{t.emoji}</span>
+                                <span>{t.text}</span>
+                                <span style={{ fontSize: 11, color: 'rgba(240,239,248,0.3)' }}>— {t.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* ── FEATURES ── */}
+            <div className="section-pad" style={{ padding: '100px 0', background: '#06060a', width: '95vw', marginLeft: '50%', transform: 'translateX(-50%)' }}>
+                <div className="inner">
+                    <div style={{ textAlign: 'center' }}>
+                        <span style={{ display: 'inline-block', background: 'rgba(167,139,250,0.12)', color: '#a78bfa', fontSize: 11.5, fontWeight: 600, padding: '5px 14px', borderRadius: 999, marginBottom: 16, letterSpacing: '1px', textTransform: 'uppercase', border: '1px solid rgba(167,139,250,0.25)' }}>Why LifeInnovior</span>
+                        <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: '-1.5px', marginBottom: 12, color: '#f0eff8' }}>Everything You Need</h2>
+                        <p style={{ color: 'rgba(240,239,248,0.45)', fontSize: 17, maxWidth: 420, margin: '0 auto' }}>A complete platform for modern mental health care</p>
+                    </div>
+                    <div className="features-grid">
+                        {features.map(f => (
+                            <div key={f.title} className="feature-card">
+                                <div style={{ position: 'absolute', top: 0, right: 0, width: 100, height: 100, borderRadius: '0 20px 0 100%', background: f.accent }} />
+                                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 52, height: 52, borderRadius: 14, background: f.accent, border: `1px solid ${f.border}`, fontSize: 24, marginBottom: 18, position: 'relative' }}>{f.icon}</div>
+                                <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+                                    <h3 style={{ fontSize: 16, fontWeight: 600, color: '#f0eff8' }}>{f.title}</h3>
+                                    <span style={{ fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999, background: f.accent, color: f.color, border: `1px solid ${f.border}`, marginLeft: 8 }}>{f.tag}</span>
+                                </div>
+                                <p style={{ color: 'rgba(240,239,248,0.45)', fontSize: 14.5, lineHeight: 1.75 }}>{f.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* ── HOW IT WORKS ── */}
+            <div className="section-pad" style={{ padding: '100px 0', background: '#09090f', width: '95vw', marginLeft: '50%', transform: 'translateX(-50%)' }}>
+                <div className="inner">
+                    <div style={{ textAlign: 'center' }}>
+                        <span style={{ display: 'inline-block', background: 'rgba(52,211,153,0.1)', color: '#34d399', fontSize: 11.5, fontWeight: 600, padding: '5px 14px', borderRadius: 999, marginBottom: 16, letterSpacing: '1px', textTransform: 'uppercase', border: '1px solid rgba(52,211,153,0.25)' }}>Simple Process</span>
+                        <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 42, fontWeight: 800, letterSpacing: '-1.5px', color: '#f0eff8' }}>How It Works</h2>
+                    </div>
+                    <div className="steps-grid">
+                        {steps.map(s => (
+                            <div key={s.step}>
+                                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, borderRadius: '50%', background: s.gradient, color: '#fff', fontFamily: 'Sora,sans-serif', fontSize: 20, fontWeight: 800, marginBottom: 24, boxShadow: `0 12px 32px ${s.shadow}` }}>{s.step}</div>
+                                <h3 style={{ fontSize: 19, fontWeight: 700, marginBottom: 12, fontFamily: 'Sora,sans-serif', color: '#f0eff8' }}>{s.title}</h3>
+                                <p style={{ color: 'rgba(240,239,248,0.45)', fontSize: 15, lineHeight: 1.8 }}>{s.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* ── CTA ── */}
+            <div className="cta-inner" style={{ margin: '0 48px 80px', borderRadius: 28, background: '#0d0d14', border: '1px solid rgba(167,139,250,0.2)', padding: '80px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 30% 50%, rgba(109,40,217,0.25) 0%, transparent 60%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 60% at 80% 50%, rgba(16,185,129,0.15) 0%, transparent 60%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(167,139,250,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px', pointerEvents: 'none' }} />
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    <div style={{ display: 'inline-block', background: 'rgba(167,139,250,0.12)', border: '1px solid rgba(167,139,250,0.3)', borderRadius: 999, padding: '5px 16px', fontSize: 11.5, fontWeight: 600, color: '#a78bfa', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: 24 }}>Free 14-day trial</div>
+                    <h2 className="cta-h2" style={{ fontFamily: 'Sora,sans-serif', fontSize: 48, fontWeight: 800, color: '#f0eff8', letterSpacing: '-1.5px', marginBottom: 16 }}>Ready to Get Started?</h2>
+                    <p style={{ fontSize: 18, color: 'rgba(240,239,248,0.45)', maxWidth: 400, margin: '0 auto 40px' }}>
+                        Join LifeInnovior today. Free 14-day trial for psychologists. No credit card required.
+                    </p>
+                    <div className="cta-btns" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <Link to="/register" className="pill-btn pill-btn-primary" style={{ fontSize: 16, padding: '16px 36px' }}>Create Free Account</Link>
+                        <Link to="/pricing" className="pill-btn pill-btn-secondary" style={{ fontSize: 16, padding: '15px 34px' }}>View Pricing →</Link>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── FOOTER ── */}
+            <footer style={{ background: '#030305', borderTop: '1px solid rgba(255,255,255,0.05)', color: 'rgba(240,239,248,0.3)', padding: '48px 0 32px' }}>
+                <div className="inner">
+                    <div className="footer-cols" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 40, flexWrap: 'wrap', gap: 24 }}>
+                        <div>
+                            <div style={{ fontFamily: 'Sora,sans-serif', fontSize: 22, fontWeight: 800, marginBottom: 10, background: 'linear-gradient(135deg,#a78bfa,#34d399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>LifeInnovior</div>
+                            <p style={{ fontSize: 14, color: 'rgba(240,239,248,0.3)', maxWidth: 260, lineHeight: 1.7 }}>Modern mental health care for everyone, everywhere.</p>
+                        </div>
+                        <div className="footer-links" style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+                            {[
+                                { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing'] },
+                                { label: 'Company', links: ['About', 'Blog', 'Careers'] },
+                                { label: 'Legal', links: ['Privacy', 'Terms', 'Security'] },
+                            ].map(col => (
+                                <div key={col.label}>
+                                    <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(240,239,248,0.6)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 16 }}>{col.label}</div>
+                                    {col.links.map(l => (
+                                        <div key={l} style={{ fontSize: 14, color: 'rgba(240,239,248,0.3)', marginBottom: 10, cursor: 'pointer' }}>{l}</div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+                        <p style={{ fontSize: 13 }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</p>
+                        <div style={{ display: 'flex', gap: 16, fontSize: 13 }}>
+                            <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
+                            <span style={{ cursor: 'pointer' }}>Terms of Service</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    );
+}
 
