@@ -1197,6 +1197,66 @@ export default function Home() {
                     .feature-card { padding: 20px 16px; border-radius: 16px; }
                     .cta-h2 { font-size: 26px !important; }
                 }
+                    /* ── FOOTER ── */
+.ft-top {
+    padding: 64px 48px 48px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ft-col-label {
+    font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 20px;
+}
+.ft-link {
+    display: block; font-size: 14px; color: rgba(255,255,255,0.45);
+    margin-bottom: 12px; cursor: pointer; text-decoration: none;
+    transition: color .2s; width: fit-content; position: relative;
+}
+.ft-link::after {
+    content: ''; position: absolute; left: 0; bottom: -2px;
+    width: 0; height: 1px; background: #5DCAA5; transition: width .25s;
+}
+.ft-link:hover { color: rgba(255,255,255,0.85); }
+.ft-link:hover::after { width: 100%; }
+
+.ft-social {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer; transition: background .2s, border-color .2s;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+}
+.ft-social:hover { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); color: #a78bfa; }
+
+.ft-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+}
+.ft-badge-teal { background: rgba(93,202,165,0.1); color: #5DCAA5; border: 1px solid rgba(93,202,165,0.25); }
+.ft-badge-purple { background: rgba(83,74,183,0.1); color: #9F99E8; border: 1px solid rgba(83,74,183,0.25); }
+
+.ft-bottom {
+    padding: 20px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+}
+.ft-legal-link {
+    font-size: 12.5px; color: rgba(255,255,255,0.2);
+    text-decoration: none; cursor: pointer; transition: color .2s;
+}
+.ft-legal-link:hover { color: rgba(255,255,255,0.55); }
+
+/* Footer responsive */
+@media (max-width: 900px) {
+    .ft-top { grid-template-columns: 1fr 1fr; padding: 48px 24px 40px; gap: 32px; }
+    .ft-bottom { padding: 18px 24px; }
+}
+@media (max-width: 600px) {
+    .ft-top { grid-template-columns: 1fr; padding: 40px 16px 32px; gap: 28px; }
+    .ft-bottom { padding: 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
+}
             `}</style>
 
             {/* ── NAV ── */}
@@ -1443,7 +1503,7 @@ export default function Home() {
             </div>
 
             {/* ── FOOTER ── */}
-            <footer style={{ background: '#111', color: '#9CA3AF', padding: '48px 0 32px' }}>
+            {/* <footer style={{ background: '#111', color: '#9CA3AF', padding: '48px 0 32px' }}>
                 <div className="inner">
                     <div className="footer-cols" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 40, flexWrap: 'wrap', gap: 24 }}>
                         <div>
@@ -1471,6 +1531,55 @@ export default function Home() {
                             <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
                             <span style={{ cursor: 'pointer' }}>Terms of Service</span>
                         </div>
+                    </div>
+                </div>
+            </footer> */}
+
+            {/* ── FOOTER ── */}
+            <footer style={{
+                background: '#0d0d14',
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                width: '95vw',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+            }}>
+                {/* top grid */}
+                <div className="ft-top">
+                    {/* Brand */}
+                    <div>
+                        <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
+                        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
+                        <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
+                            <span className="ft-badge ft-badge-teal">✦ HIPAA Compliant</span>
+                            <span className="ft-badge ft-badge-purple">✦ E2E Encrypted</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: 8 }}>
+                            {['𝕏', 'in', '◎', 'f'].map((icon, i) => (
+                                <a key={i} className="ft-social">{icon}</a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Links */}
+                    {[
+                        { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
+                        { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
+                        { label: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'] },
+                    ].map(col => (
+                        <div key={col.label}>
+                            <div className="ft-col-label">{col.label}</div>
+                            {col.links.map(l => <a key={l} className="ft-link">{l}</a>)}
+                        </div>
+                    ))}
+                </div>
+
+                {/* bottom bar */}
+                <div className="ft-bottom">
+                    <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
+                    <div style={{ display: 'flex', gap: 20 }}>
+                        {['Privacy Policy', 'Terms of Service', 'Cookie Settings'].map(l => (
+                            <a key={l} className="ft-legal-link">{l}</a>
+                        ))}
                     </div>
                 </div>
             </footer>
