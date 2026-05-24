@@ -1207,7 +1207,7 @@ export default function Home() {
                 position: 'sticky',
                 top: 0,
                 zIndex: 100,
-                width: '95vw',
+                width: '100vw',
                 marginLeft: '50%',
                 transform: 'translateX(-50%)',
                 borderBottom: 'none',
