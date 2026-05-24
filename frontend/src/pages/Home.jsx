@@ -1217,7 +1217,7 @@ export default function Home() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '95vw',
+                    width: '100vw',
                     marginLeft: '50%',
                     transform: 'translateX(-50%)',
                     borderBottom: '1px solid #e9e9e5',
