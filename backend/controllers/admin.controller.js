@@ -44,6 +44,9 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
+        console.log('UPDATE BODY:', JSON.stringify(req.body));
+        console.log('USER ID:', req.params.id);
+
         const { isActive, role, name, phone, avatar, psychologistProfile } = req.body;
 
         const updateData = {};
@@ -60,6 +63,8 @@ exports.updateUser = async (req, res) => {
             if (psychologistProfile.sessionFee !== undefined) updateData['psychologistProfile.sessionFee'] = Number(psychologistProfile.sessionFee);
         }
 
+        console.log('UPDATE DATA:', JSON.stringify(updateData));
+
         const user = await User.findByIdAndUpdate(
             req.params.id,
             { $set: updateData },
@@ -68,7 +73,10 @@ exports.updateUser = async (req, res) => {
 
         if (!user) return res.status(404).json({ success: false, message: 'User not found' });
         res.json({ success: true, user });
-    } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+    } catch (err) {
+        console.log('UPDATE ERROR:', err.message);
+        res.status(500).json({ success: false, message: err.message });
+    }
 };
 
 exports.deleteUser = async (req, res) => {
