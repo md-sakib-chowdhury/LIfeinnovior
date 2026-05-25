@@ -44,8 +44,28 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
-        const { isActive, role, name } = req.body;
-        const user = await User.findByIdAndUpdate(req.params.id, { isActive, role, name }, { new: true, runValidators: true }).select('-password');
+        const { isActive, role, name, phone, avatar, psychologistProfile } = req.body;
+
+        const updateData = {};
+        if (isActive !== undefined) updateData.isActive = isActive;
+        if (role !== undefined) updateData.role = role;
+        if (name !== undefined) updateData.name = name;
+        if (phone !== undefined) updateData.phone = phone;
+        if (avatar !== undefined) updateData.avatar = avatar;
+
+        if (psychologistProfile) {
+            if (psychologistProfile.bio !== undefined) updateData['psychologistProfile.bio'] = psychologistProfile.bio;
+            if (psychologistProfile.specializations !== undefined) updateData['psychologistProfile.specializations'] = psychologistProfile.specializations;
+            if (psychologistProfile.experience !== undefined) updateData['psychologistProfile.experience'] = Number(psychologistProfile.experience);
+            if (psychologistProfile.sessionFee !== undefined) updateData['psychologistProfile.sessionFee'] = Number(psychologistProfile.sessionFee);
+        }
+
+        const user = await User.findByIdAndUpdate(
+            req.params.id,
+            { $set: updateData },
+            { new: true, runValidators: true }
+        ).select('-password');
+
         if (!user) return res.status(404).json({ success: false, message: 'User not found' });
         res.json({ success: true, user });
     } catch (err) { res.status(500).json({ success: false, message: err.message }); }
