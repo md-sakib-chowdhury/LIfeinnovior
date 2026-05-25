@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const { search, specialization, page = 1, limit = 12 } = req.query;
         const query = { role: 'psychologist', isActive: true };
         if (search) query.$or = [{ name: { $regex: search, $options: 'i' } }];
-        if (specialization) query['psychologistProfile.specializations'] = specialization;
+        if (specialization) query['psychologistProfile.specializations'] = { $in: [specialization] };
         const psychologists = await User.find(query)
             .select('name avatar psychologistProfile.bio psychologistProfile.specializations psychologistProfile.sessionFee psychologistProfile.rating psychologistProfile.totalReviews psychologistProfile.experience psychologistProfile.languages')
             .limit(limit * 1).skip((page - 1) * limit);
