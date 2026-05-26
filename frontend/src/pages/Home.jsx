@@ -1258,7 +1258,6 @@ export default function Home() {
     .ft-bottom { padding: 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
 }
             `}</style>
-
             {/* ── NAV ── */}
             <nav style={{
                 background: 'rgba(250,250,248,0.9)',
@@ -1288,16 +1287,42 @@ export default function Home() {
                     </Link>
 
                     <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <Link to="/find-psychologist" className="nav-link" style={{ color: '#fff', background: '#1e1b4b' }}>🧠 Find Psychologist</Link>
-                        <Link to="/blog" className="nav-link" style={{ color: '#fff', background: '#0f2820' }}>📰 Blog</Link>
-                        <Link to="/pricing" className="nav-link" style={{ color: '#fff', background: '#1c1007' }}>🏷️ Pricing</Link>
+                        <Link to="/find-psychologist" className="nav-link"
+                            style={{ color: '#fff', background: 'linear-gradient(135deg, #4F46E5, #7C3AED)', boxShadow: '0 4px 12px rgba(79,70,229,0.3)' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(79,70,229,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(79,70,229,0.3)'; }}>
+                            🧠 Find Psychologist
+                        </Link>
+
+                        <Link to="/blog" className="nav-link"
+                            style={{ color: '#fff', background: 'linear-gradient(135deg, #0EA5E9, #06B6D4)', boxShadow: '0 4px 12px rgba(6,182,212,0.3)' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(6,182,212,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(6,182,212,0.3)'; }}>
+                            📰 Blog
+                        </Link>
+
+                        <Link to="/pricing" className="nav-link"
+                            style={{ color: '#fff', background: 'linear-gradient(135deg, #F59E0B, #EF4444)', boxShadow: '0 4px 12px rgba(245,158,11,0.3)' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(245,158,11,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(245,158,11,0.3)'; }}>
+                            🏷️ Pricing
+                        </Link>
+
                         <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
-                        <Link to="/login" className="nav-link" style={{ color: '#fff', border: '1px solid #333', background: '#111' }}>Login</Link>
+
+                        <Link to="/login" className="nav-link"
+                            style={{ color: '#4F46E5', background: '#EEF2FF', border: '1.5px solid #C7D2FE' }}
+                            onMouseEnter={e => { e.currentTarget.style.background = '#E0E7FF'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.background = '#EEF2FF'; e.currentTarget.style.transform = 'none'; }}>
+                            Login
+                        </Link>
+
                         <Link to="/register"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: '#0f0f0f', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', border: '1px solid #333' }}
-                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.35)'; }}
-                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
-                        >Get Started →</Link>
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 4px 12px rgba(16,185,129,0.3)', border: 'none' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,185,129,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(16,185,129,0.3)'; }}>
+                            Get Started →
+                        </Link>
                     </div>
 
                     <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
@@ -1307,6 +1332,7 @@ export default function Home() {
                     </button>
                 </div>
             </nav>
+       
 
             {/* Mobile menu */}
             <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
