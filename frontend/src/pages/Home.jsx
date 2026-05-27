@@ -1332,7 +1332,7 @@ export default function Home() {
                     </button>
                 </div>
             </nav>
-       
+
 
             {/* Mobile menu */}
             <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
@@ -1511,7 +1511,7 @@ export default function Home() {
             </div>
 
             {/* ── CTA ── */}
-            <div className="cta-inner" style={{ margin: '0 48px 80px', borderRadius: 28, background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 50%,#0f5e48 100%)', padding: '80px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            {/* <div className="cta-inner" style={{ margin: '0 48px 80px', borderRadius: 28, background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 50%,#0f5e48 100%)', padding: '80px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
                 <div className="blob" style={{ width: 350, height: 350, background: '#534AB7', top: -100, right: -50 }} />
                 <div className="blob" style={{ width: 250, height: 250, background: '#1D9E75', bottom: -60, left: 80 }} />
                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
@@ -1524,6 +1524,90 @@ export default function Home() {
                     <div className="cta-btns" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
                         <Link to="/register" className="pill-btn" style={{ background: '#fff', color: '#534AB7', fontSize: 16, padding: '16px 36px' }}>Create Free Account</Link>
                         <Link to="/pricing" className="pill-btn" style={{ background: 'transparent', color: '#fff', border: '1.5px solid rgba(255,255,255,0.3)', fontSize: 16, padding: '16px 36px' }}>View Pricing →</Link>
+                    </div>
+                </div>
+            </div> */}
+            {/* ── CTA ── */}
+            <div className="cta-inner" style={{
+                margin: '0 48px 80px',
+                borderRadius: 32,
+                background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+                padding: '90px 40px',
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                {/* Animated blobs */}
+                <div style={{ position: 'absolute', width: 400, height: 400, background: 'radial-gradient(circle, rgba(83,74,183,0.6) 0%, transparent 70%)', top: -100, right: -80, borderRadius: '50%', filter: 'blur(40px)' }} />
+                <div style={{ position: 'absolute', width: 300, height: 300, background: 'radial-gradient(circle, rgba(29,158,117,0.5) 0%, transparent 70%)', bottom: -80, left: 60, borderRadius: '50%', filter: 'blur(40px)' }} />
+                <div style={{ position: 'absolute', width: 200, height: 200, background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)', top: '40%', left: '30%', borderRadius: '50%', filter: 'blur(30px)' }} />
+
+                {/* Grid pattern */}
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+
+                {/* Glowing border */}
+                <div style={{ position: 'absolute', inset: 0, borderRadius: 32, border: '1px solid rgba(255,255,255,0.08)' }} />
+
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    {/* Badge */}
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 999, padding: '6px 18px', fontSize: 12, fontWeight: 700, color: '#A5B4FC', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: 28, backdropFilter: 'blur(10px)' }}>
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
+                        Free 14-day trial • No credit card required
+                    </div>
+
+                    {/* Heading */}
+                    <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 52, fontWeight: 800, color: '#fff', letterSpacing: '-2px', marginBottom: 6, lineHeight: 1.1 }}>
+                        Ready to Transform
+                    </h2>
+                    <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 52, fontWeight: 800, letterSpacing: '-2px', marginBottom: 20, lineHeight: 1.1, background: 'linear-gradient(135deg, #818CF8, #34D399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                        Mental Healthcare?
+                    </h2>
+
+                    <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.55)', maxWidth: 460, margin: '0 auto 48px', lineHeight: 1.7 }}>
+                        Join thousands of psychologists and patients on LifeInnovior — the most trusted mental health platform.
+                    </p>
+
+                    {/* Stats row */}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 48, marginBottom: 48, flexWrap: 'wrap' }}>
+                        {[
+                            { value: '800+', label: 'Psychologists' },
+                            { value: '10k+', label: 'Patients' },
+                            { value: '4.9★', label: 'Rating' },
+                        ].map(stat => (
+                            <div key={stat.label} style={{ textAlign: 'center' }}>
+                                <div style={{ fontSize: 28, fontWeight: 800, color: '#fff', fontFamily: 'Sora,sans-serif' }}>{stat.value}</div>
+                                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Buttons */}
+                    <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <Link to="/register"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 700, padding: '16px 36px', borderRadius: 14, background: 'linear-gradient(135deg, #818CF8, #4F46E5)', color: '#fff', textDecoration: 'none', boxShadow: '0 8px 32px rgba(79,70,229,0.4)', border: 'none', transition: 'all 0.2s' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(79,70,229,0.5)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(79,70,229,0.4)'; }}>
+                            🚀 Create Free Account
+                        </Link>
+                        <Link to="/find-psychologist"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 700, padding: '16px 36px', borderRadius: 14, background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', textDecoration: 'none', boxShadow: '0 8px 32px rgba(16,185,129,0.3)', border: 'none', transition: 'all 0.2s' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(16,185,129,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(16,185,129,0.3)'; }}>
+                            🧠 Find a Psychologist
+                        </Link>
+                        <Link to="/pricing"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 600, padding: '16px 36px', borderRadius: 14, background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.8)', textDecoration: 'none', border: '1.5px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', transition: 'all 0.2s' }}
+                            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'none'; }}>
+                            View Pricing →
+                        </Link>
+                    </div>
+
+                    {/* Trust badges */}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 40, flexWrap: 'wrap' }}>
+                        {['🔒 HIPAA Compliant', '🎥 HD Video Sessions', '💳 Flexible Plans', '📱 All Devices'].map(badge => (
+                            <div key={badge} style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{badge}</div>
+                        ))}
                     </div>
                 </div>
             </div>
