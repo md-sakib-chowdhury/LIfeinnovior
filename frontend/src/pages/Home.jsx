@@ -1520,6 +1520,95 @@ export default function Home() {
                 <div style={{ position: 'absolute', top: -100, left: '50%', transform: 'translateX(-50%)', width: 800, height: 400, background: 'radial-gradient(ellipse, rgba(83,74,183,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', bottom: -50, right: -100, width: 400, height: 400, background: 'radial-gradient(ellipse, rgba(29,158,117,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
+                <style>{`
+        .hiw-grid-responsive {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+        .hiw-connector-1 {
+            position: absolute;
+            top: 52px;
+            left: calc(33.33% + 20px);
+            width: calc(33.33% - 40px);
+            height: 2px;
+            background: linear-gradient(90deg, #AFA9EC, #5DCAA5);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .hiw-connector-2 {
+            position: absolute;
+            top: 52px;
+            left: calc(66.66% + 20px);
+            width: calc(33.33% - 40px);
+            height: 2px;
+            background: linear-gradient(90deg, #5DCAA5, #EF9F27);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .hiw-step-card {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid #e9e9e5;
+            transition: all 0.3s;
+            cursor: default;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            z-index: 1;
+        }
+        .hiw-step-card:hover {
+            transform: translateY(-8px);
+        }
+        .hiw-watermark {
+            position: absolute;
+            bottom: -10px;
+            right: 16px;
+            font-family: 'Sora', sans-serif;
+            font-size: 100px;
+            font-weight: 900;
+            opacity: 0.06;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+        @media (max-width: 1024px) {
+            .hiw-grid-responsive {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .hiw-step-card {
+                padding: 24px;
+            }
+        }
+        @media (max-width: 768px) {
+            .hiw-grid-responsive {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .hiw-connector-1, .hiw-connector-2 {
+                display: none;
+            }
+            .hiw-step-card {
+                padding: 28px;
+            }
+            .hiw-watermark {
+                font-size: 80px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hiw-step-card {
+                padding: 24px 20px;
+                border-radius: 18px;
+            }
+            .hiw-watermark {
+                font-size: 60px;
+            }
+        }
+    `}</style>
+
                 <div className="inner">
                     {/* Header */}
                     <div style={{ textAlign: 'center', marginBottom: 80 }}>
@@ -1533,22 +1622,18 @@ export default function Home() {
                         <p style={{ color: '#6b7280', fontSize: 17, maxWidth: 460, margin: '0 auto', lineHeight: 1.7 }}>Three simple steps to start your mental health journey today</p>
                     </div>
 
-                    {/* Steps */}
-                    <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-                        {/* Connectors */}
-                        <div style={{ position: 'absolute', top: 52, left: 'calc(33.33% + 20px)', width: 'calc(33.33% - 40px)', height: 2, background: 'linear-gradient(90deg, #AFA9EC, #5DCAA5)', borderRadius: 2, zIndex: 0 }} />
-                        <div style={{ position: 'absolute', top: 52, left: 'calc(66.66% + 20px)', width: 'calc(33.33% - 40px)', height: 2, background: 'linear-gradient(90deg, #5DCAA5, #EF9F27)', borderRadius: 2, zIndex: 0 }} />
+                    {/* Steps Grid */}
+                    <div className="hiw-grid-responsive">
+                        <div className="hiw-connector-1" />
+                        <div className="hiw-connector-2" />
 
-                        {hiwSteps.map((s, index) => (
-                            <div key={s.step}
-                                style={{ position: 'relative', background: '#fff', borderRadius: 24, padding: 32, border: '1px solid #e9e9e5', transition: 'all 0.3s', cursor: 'default', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.06)', zIndex: 1 }}
+                        {hiwSteps.map((s) => (
+                            <div key={s.step} className="hiw-step-card"
                                 onMouseEnter={e => {
-                                    e.currentTarget.style.transform = 'translateY(-8px)';
                                     e.currentTarget.style.boxShadow = `0 20px 48px ${s.color}25`;
                                     e.currentTarget.style.borderColor = s.border;
                                 }}
                                 onMouseLeave={e => {
-                                    e.currentTarget.style.transform = 'none';
                                     e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
                                     e.currentTarget.style.borderColor = '#e9e9e5';
                                 }}>
@@ -1561,7 +1646,7 @@ export default function Home() {
 
                                 {/* Step number circle */}
                                 <div style={{ position: 'relative', display: 'inline-flex', marginBottom: 24 }}>
-                                    <div style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: `2px dashed ${s.ringBorder}`, animation: 'spin 8s linear infinite' }} />
+                                    <div style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: `2px dashed ${s.ringBorder}` }} />
                                     <div style={{ width: 64, height: 64, borderRadius: '50%', background: `linear-gradient(135deg, ${s.color}, ${s.color}CC)`, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Sora,sans-serif', fontSize: 22, fontWeight: 800, position: 'relative', zIndex: 1, boxShadow: `0 12px 32px ${s.color}50` }}>
                                         {s.step}
                                     </div>
@@ -1581,9 +1666,9 @@ export default function Home() {
                                     {s.tag}
                                 </div>
 
-                                {/* Bottom number watermark */}
-                                <div style={{ position: 'absolute', bottom: -10, right: 16, fontFamily: 'Sora,sans-serif', fontSize: 80, fontWeight: 900, color: s.color, opacity: 0.04, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
-                                    {s.step}
+                                {/* Watermark number - visible */}
+                                <div className="hiw-watermark" style={{ color: s.color }}>
+                                    {String(s.step).padStart(2, '0')}
                                 </div>
                             </div>
                         ))}
@@ -1592,7 +1677,8 @@ export default function Home() {
                     {/* Bottom CTA */}
                     <div style={{ textAlign: 'center', marginTop: 60 }}>
                         <p style={{ color: '#9CA3AF', fontSize: 14, marginBottom: 16 }}>Ready to start? It only takes 2 minutes</p>
-                        <Link to="/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', borderRadius: 14, background: 'linear-gradient(135deg, #534AB7, #1D9E75)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 15, boxShadow: '0 8px 24px rgba(83,74,183,0.3)', transition: 'all 0.2s' }}
+                        <Link to="/register"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', borderRadius: 14, background: 'linear-gradient(135deg, #534AB7, #1D9E75)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 15, boxShadow: '0 8px 24px rgba(83,74,183,0.3)', transition: 'all 0.2s' }}
                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(83,74,183,0.4)'; }}
                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.3)'; }}>
                             Get Started Free →
