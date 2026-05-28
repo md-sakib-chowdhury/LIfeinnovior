@@ -1469,7 +1469,7 @@ export default function Home() {
             </div>
 
             {/* ── HOW IT WORKS ── */}
-            <div className="section-pad hiw-section" style={{ padding: '100px 0', background: '#fff', position: 'relative', overflow: 'hidden' }}>
+            {/* <div className="section-pad hiw-section" style={{ padding: '100px 0', background: '#fff', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: -120, left: '50%', transform: 'translateX(-50%)', width: 700, height: 300, background: 'radial-gradient(ellipse,rgba(83,74,183,0.07) 0%,transparent 70%)', pointerEvents: 'none' }} />
 
                 <div className="inner">
@@ -1506,6 +1506,97 @@ export default function Home() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div> */}
+            {/* ── HOW IT WORKS ── */}
+            <div className="section-pad hiw-section" style={{
+                padding: '100px 0',
+                background: 'linear-gradient(180deg, #fff 0%, #F5F3FF 50%, #fff 100%)',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                {/* Background decorations */}
+                <div style={{ position: 'absolute', top: -100, left: '50%', transform: 'translateX(-50%)', width: 800, height: 400, background: 'radial-gradient(ellipse, rgba(83,74,183,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', bottom: -50, right: -100, width: 400, height: 400, background: 'radial-gradient(ellipse, rgba(29,158,117,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+                <div className="inner">
+                    {/* Header */}
+                    <div style={{ textAlign: 'center', marginBottom: 80 }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg, #EDE9FE, #E1F5EE)', color: '#534AB7', fontSize: 11.5, fontWeight: 700, padding: '7px 18px', borderRadius: 999, marginBottom: 20, letterSpacing: '1px', textTransform: 'uppercase', border: '1px solid rgba(83,74,183,0.15)' }}>
+                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #534AB7, #1D9E75)', display: 'inline-block' }} />
+                            Simple Process
+                        </span>
+                        <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 44, fontWeight: 800, letterSpacing: '-1.5px', color: '#111', marginBottom: 14, lineHeight: 1.15 }}>
+                            How It <span style={{ background: 'linear-gradient(135deg, #534AB7, #1D9E75)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Works</span>
+                        </h2>
+                        <p style={{ color: '#6b7280', fontSize: 17, maxWidth: 460, margin: '0 auto', lineHeight: 1.7 }}>Three simple steps to start your mental health journey today</p>
+                    </div>
+
+                    {/* Steps */}
+                    <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+                        {/* Connectors */}
+                        <div style={{ position: 'absolute', top: 52, left: 'calc(33.33% + 20px)', width: 'calc(33.33% - 40px)', height: 2, background: 'linear-gradient(90deg, #AFA9EC, #5DCAA5)', borderRadius: 2, zIndex: 0 }} />
+                        <div style={{ position: 'absolute', top: 52, left: 'calc(66.66% + 20px)', width: 'calc(33.33% - 40px)', height: 2, background: 'linear-gradient(90deg, #5DCAA5, #EF9F27)', borderRadius: 2, zIndex: 0 }} />
+
+                        {hiwSteps.map((s, index) => (
+                            <div key={s.step}
+                                style={{ position: 'relative', background: '#fff', borderRadius: 24, padding: 32, border: '1px solid #e9e9e5', transition: 'all 0.3s', cursor: 'default', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.06)', zIndex: 1 }}
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.transform = 'translateY(-8px)';
+                                    e.currentTarget.style.boxShadow = `0 20px 48px ${s.color}25`;
+                                    e.currentTarget.style.borderColor = s.border;
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.transform = 'none';
+                                    e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
+                                    e.currentTarget.style.borderColor = '#e9e9e5';
+                                }}>
+
+                                {/* Top gradient bar */}
+                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${s.color}, ${s.color}80)`, borderRadius: '24px 24px 0 0' }} />
+
+                                {/* Corner decoration */}
+                                <div style={{ position: 'absolute', top: 0, right: 0, width: 100, height: 100, borderRadius: '0 24px 0 100px', background: s.cornerBg, opacity: 0.5, pointerEvents: 'none' }} />
+
+                                {/* Step number circle */}
+                                <div style={{ position: 'relative', display: 'inline-flex', marginBottom: 24 }}>
+                                    <div style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: `2px dashed ${s.ringBorder}`, animation: 'spin 8s linear infinite' }} />
+                                    <div style={{ width: 64, height: 64, borderRadius: '50%', background: `linear-gradient(135deg, ${s.color}, ${s.color}CC)`, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Sora,sans-serif', fontSize: 22, fontWeight: 800, position: 'relative', zIndex: 1, boxShadow: `0 12px 32px ${s.color}50` }}>
+                                        {s.step}
+                                    </div>
+                                </div>
+
+                                {/* Label */}
+                                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: s.color, marginBottom: 10 }}>{s.label}</div>
+
+                                {/* Title */}
+                                <h3 style={{ fontFamily: 'Sora,sans-serif', fontSize: 20, fontWeight: 700, color: '#111', marginBottom: 12, lineHeight: 1.3 }}>{s.title}</h3>
+
+                                {/* Description */}
+                                <p style={{ color: '#6b7280', fontSize: 14.5, lineHeight: 1.8, marginBottom: 20 }}>{s.desc}</p>
+
+                                {/* Tag */}
+                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 600, padding: '6px 14px', borderRadius: 999, background: s.accent, color: s.tagColor, border: `1px solid ${s.border}` }}>
+                                    {s.tag}
+                                </div>
+
+                                {/* Bottom number watermark */}
+                                <div style={{ position: 'absolute', bottom: -10, right: 16, fontFamily: 'Sora,sans-serif', fontSize: 80, fontWeight: 900, color: s.color, opacity: 0.04, lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>
+                                    {s.step}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom CTA */}
+                    <div style={{ textAlign: 'center', marginTop: 60 }}>
+                        <p style={{ color: '#9CA3AF', fontSize: 14, marginBottom: 16 }}>Ready to start? It only takes 2 minutes</p>
+                        <Link to="/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', borderRadius: 14, background: 'linear-gradient(135deg, #534AB7, #1D9E75)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 15, boxShadow: '0 8px 24px rgba(83,74,183,0.3)', transition: 'all 0.2s' }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(83,74,183,0.4)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.3)'; }}>
+                            Get Started Free →
+                        </Link>
                     </div>
                 </div>
             </div>
