@@ -1551,6 +1551,196 @@ export default function Home() {
                     </div>
                 </div>
             </div> */}
+            import {useState} from "react";
+
+            const features = [
+            {
+                icon: "🧠",
+            title: "AI-Powered Insights",
+            tag: "Smart",
+            desc: "Personalized recommendations and mood tracking that adapts to your unique mental health journey.",
+            accent: "#EEEDFE",
+            border: "#534AB7",
+            glow: "rgba(83,74,183,0.18)",
+  },
+            {
+                icon: "🎥",
+            title: "Video Therapy",
+            tag: "Live",
+            desc: "Connect with licensed therapists via secure HD video sessions from wherever you feel most comfortable.",
+            accent: "#E1F5EE",
+            border: "#0F6E56",
+            glow: "rgba(15,110,86,0.15)",
+  },
+            {
+                icon: "📅",
+            title: "Easy Scheduling",
+            tag: "24/7",
+            desc: "Book, reschedule, or cancel sessions instantly — no phone calls, no waiting rooms, no friction.",
+            accent: "#E6F1FB",
+            border: "#185FA5",
+            glow: "rgba(24,95,165,0.15)",
+  },
+            {
+                icon: "📈",
+            title: "Progress Tracking",
+            tag: "Visual",
+            desc: "See your growth with beautiful charts and weekly check-ins that keep you motivated.",
+            accent: "#FAEEDA",
+            border: "#854F0B",
+            glow: "rgba(133,79,11,0.15)",
+  },
+            {
+                icon: "🔒",
+            title: "Private & Secure",
+            tag: "HIPAA",
+            desc: "End-to-end encryption and strict data policies so every session stays completely confidential.",
+            accent: "#FCEBEB",
+            border: "#A32D2D",
+            glow: "rgba(163,45,45,0.15)",
+  },
+            {
+                icon: "🤝",
+            title: "Group Sessions",
+            tag: "Community",
+            desc: "Join therapist-led group sessions to connect with others on similar paths to wellness.",
+            accent: "#FBEAF0",
+            border: "#993556",
+            glow: "rgba(153,53,86,0.15)",
+  },
+            ];
+
+            export default function FeaturesSection() {
+  const [hovered, setHovered] = useState(null);
+
+            return (
+            <div className="section-pad" style={{ padding: "100px 0", background: "#FAFAF8" }}>
+                <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap');
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+        @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px)  { .features-grid { grid-template-columns: 1fr; } }
+        .feature-card {
+          background: #fff;
+          border-radius: 22px;
+          border: 1.5px solid #f0eff5;
+          padding: 30px 26px 28px;
+          position: relative;
+          overflow: hidden;
+          cursor: default;
+          transition:
+            transform 0.3s cubic-bezier(.22,1,.36,1),
+            border-color 0.25s ease,
+            box-shadow 0.3s ease;
+        }
+        .feature-card-bar {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 3px;
+          border-radius: 0 0 22px 22px;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+        }
+        .feature-card:hover .feature-card-bar { transform: scaleX(1); }
+        .feature-card:hover .feature-card-blob { opacity: 0.65 !important; transform: scale(1.2); }
+        .feature-card:hover .feature-card-icon  { transform: scale(1.08) rotate(-3deg); }
+        .feature-card-blob {
+          position: absolute;
+          bottom: -30px; right: -30px;
+          width: 110px; height: 110px;
+          border-radius: 50%;
+          opacity: 0.35;
+          transition: opacity 0.3s, transform 0.4s cubic-bezier(.22,1,.36,1);
+        }
+        .feature-card-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 52px; height: 52px;
+          border-radius: 14px;
+          font-size: 26px;
+          margin-bottom: 18px;
+          position: relative;
+          transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+        }
+      `}</style>
+
+                <div className="inner">
+                    {/* Header */}
+                    <div style={{ textAlign: "center", marginBottom: 60 }}>
+                        <span style={{ display: "inline-block", background: "#EEEDFE", color: "#534AB7", fontSize: 12, fontWeight: 600, padding: "5px 14px", borderRadius: 999, marginBottom: 16, letterSpacing: "0.5px", textTransform: "uppercase" }}>
+                            Why LifeInnovior
+                        </span>
+                        <h2 style={{ fontFamily: "Sora,sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-1px", marginBottom: 12 }}>
+                            Everything You Need
+                        </h2>
+                        <p style={{ color: "#6b7280", fontSize: 17, maxWidth: 480, margin: "0 auto" }}>
+                            A complete platform for modern mental health care
+                        </p>
+                    </div>
+
+                    {/* Grid */}
+                    <div className="features-grid">
+                        {features.map((f, i) => (
+                            <div
+                                key={f.title}
+                                className="feature-card"
+                                style={{
+                                    borderColor: hovered === i ? f.border + "55" : "#f0eff5",
+                                    boxShadow:
+                                        hovered === i
+                                            ? `0 12px 40px ${f.glow}, 0 2px 8px rgba(0,0,0,0.04)`
+                                            : "0 2px 8px rgba(0,0,0,0.03)",
+                                    transform: hovered === i ? "translateY(-6px)" : "translateY(0)",
+                                }}
+                                onMouseEnter={() => setHovered(i)}
+                                onMouseLeave={() => setHovered(null)}
+                            >
+                                {/* Blob background shape */}
+                                <div
+                                    className="feature-card-blob"
+                                    style={{ background: f.accent }}
+                                />
+
+                                {/* Icon */}
+                                <div
+                                    className="feature-card-icon"
+                                    style={{
+                                        background: f.accent,
+                                        border: `1px solid ${f.border}`,
+                                    }}
+                                >
+                                    {f.icon}
+                                </div>
+
+                                {/* Title + Tag */}
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+                                    <h3 style={{ fontSize: 17, fontWeight: 600 }}>{f.title}</h3>
+                                    <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 10px", borderRadius: 999, background: f.accent, color: f.border, border: `1px solid ${f.border}` }}>
+                                        {f.tag}
+                                    </span>
+                                </div>
+
+                                {/* Description */}
+                                <p style={{ color: "#6b7280", fontSize: 14.5, lineHeight: 1.7 }}>{f.desc}</p>
+
+                                {/* Animated bottom bar */}
+                                <div
+                                    className="feature-card-bar"
+                                    style={{ background: f.border }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            );
+}
 
             {/* ── HOW IT WORKS ── */}
             {/* <div className="section-pad hiw-section" style={{ padding: '100px 0', background: '#fff', position: 'relative', overflow: 'hidden' }}>
