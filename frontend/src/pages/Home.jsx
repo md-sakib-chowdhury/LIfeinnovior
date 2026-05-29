@@ -2486,7 +2486,7 @@ export default function Home() {
             </div>
 
             {/* ── FOOTER ── */}
-            <footer style={{ background: '#0d0d14', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+            {/* <footer style={{ background: '#0d0d14', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
                 <div className="ft-top">
                     <div>
                         <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
@@ -2512,6 +2512,54 @@ export default function Home() {
                         </div>
                     ))}
                 </div>
+                <div className="ft-bottom">
+                    <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
+                    <div style={{ display: 'flex', gap: 20 }}>
+                        {['Privacy Policy', 'Terms of Service', 'Cookie Settings'].map(l => (
+                            <a key={l} className="ft-legal-link">{l}</a>
+                        ))}
+                    </div>
+                </div>
+            </footer> */}
+            {/* ── FOOTER ── */}
+            <footer style={{
+                background: '#0d0d14',
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                width: '95vw',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+            }}>
+                {/* top grid */}
+                <div className="ft-top">
+                    {/* Brand */}
+                    <div>
+                        <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
+                        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
+                        <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
+                            <span className="ft-badge ft-badge-teal">✦ HIPAA Compliant</span>
+                            <span className="ft-badge ft-badge-purple">✦ E2E Encrypted</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: 8 }}>
+                            {['𝕏', 'in', '◎', 'f'].map((icon, i) => (
+                                <a key={i} className="ft-social">{icon}</a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Links */}
+                    {[
+                        { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
+                        { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
+                        { label: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'] },
+                    ].map(col => (
+                        <div key={col.label}>
+                            <div className="ft-col-label">{col.label}</div>
+                            {col.links.map(l => <a key={l} className="ft-link">{l}</a>)}
+                        </div>
+                    ))}
+                </div>
+
+                {/* bottom bar */}
                 <div className="ft-bottom">
                     <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
                     <div style={{ display: 'flex', gap: 20 }}>
