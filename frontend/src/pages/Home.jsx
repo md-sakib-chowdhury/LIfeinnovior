@@ -1529,7 +1529,7 @@ export default function Home() {
             </div>
 
             {/* ── FEATURES ── */}
-            <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
+            {/* <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
                 <div className="inner">
                     <div style={{ textAlign: 'center', marginBottom: 60 }}>
                         <span style={{ display: 'inline-block', background: '#EEEDFE', color: '#534AB7', fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 999, marginBottom: 16, letterSpacing: '0.5px', textTransform: 'uppercase' }}>Why LifeInnovior</span>
@@ -1550,7 +1550,7 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* ── HOW IT WORKS ── */}
             {/* <div className="section-pad hiw-section" style={{ padding: '100px 0', background: '#fff', position: 'relative', overflow: 'hidden' }}>
