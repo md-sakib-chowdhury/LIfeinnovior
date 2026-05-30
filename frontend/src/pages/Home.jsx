@@ -2303,10 +2303,17 @@ export default function Home() {
             </div>
 
             {/* ── MARQUEE ── */}
+            {/* <div style={{
+                position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
+                borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
+                width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
+            }}> */}
+
             <div style={{
                 position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
                 width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
+                marginTop: '60px',  // ← এইটা যোগ করো, যতটুকু নামাতে চাও
             }}>
                 <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
