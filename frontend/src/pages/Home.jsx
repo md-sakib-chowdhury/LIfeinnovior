@@ -1977,6 +1977,16 @@ const stats = [
     { value: '4.9★', label: 'Average Rating' },
 ];
 
+// const testimonials = [
+//     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
+//     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
+//     { name: 'Priya K.', text: 'Feels like real in-person therapy', emoji: '💙', color: 'teal' },
+//     { name: 'Omar S.', text: 'Changed my life in just 4 sessions', emoji: '🌿', color: 'teal' },
+//     { name: 'Lena W.', text: "The most secure platform I've used", emoji: '🔐', color: 'purple' },
+//     { name: 'Carlos D.', text: 'Perfect for my busy schedule', emoji: '⚡', color: 'amber' },
+//     { name: 'Sofia T.', text: 'My anxiety is so much better now', emoji: '🌺', color: 'pink' },
+//     { name: 'Ravi M.', text: 'Found the perfect specialist within minutes', emoji: '🧠', color: 'purple' },
+// ];
 const testimonials = [
     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
@@ -2049,21 +2059,21 @@ export default function Home() {
                 // .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
                 // .dot-pink   { background: #D85A30; box-shadow: 0 0 7px rgba(216,90,48,0.7); }
                 .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
-    .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
-    @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-    .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
-    .t-chip:hover { transform: scale(1.04); }
-    .chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
-    .chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
-    .chip-amber  { background: rgba(239,159,39,0.25);  border-color: rgba(239,159,39,0.5);  color: #FAC775; }
-    .chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
-    .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-    .dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
-    .dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
-    .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
-    .dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
-
+.mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+@keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+.t-chip:hover { transform: scale(1.04); }
+.chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
+.chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
+.chip-amber  { background: rgba(250,199,117,0.25); border-color: rgba(250,199,117,0.5); color: #FAC775; }
+.chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
+.chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
+.dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
+.dot-amber  { background: #FAC775; box-shadow: 0 0 7px rgba(250,199,117,0.7); }
+.dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
+   
                 /* FEATURES */
                 .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
                 .feature-card {
@@ -2323,12 +2333,12 @@ export default function Home() {
                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
                 width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
             }}> */}
-
             <div style={{
                 position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
                 width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
-                marginTop: '60px',  // ← এইটা যোগ করো, যতটুকু নামাতে চাও
+                marginTop: '60px',
+                borderRadius: '24px',
             }}>
                 <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
                 <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
@@ -2360,6 +2370,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+          
 
             {/* ── FEATURES ── */}
             <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
