@@ -2303,7 +2303,41 @@ export default function Home() {
             </div>
 
             {/* ── MARQUEE ── */}
-            
+            <div style={{
+                position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
+                borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
+                width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
+            }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+                <div style={{ textAlign: 'center', fontSize: 10.5, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(174,167,236,0.5)', marginBottom: 18, position: 'relative', zIndex: 3 }}>
+                    What our patients are saying
+                </div>
+                <div style={{ overflow: 'hidden', marginBottom: 10 }}>
+                    <div className="mq-track-fwd">
+                        {[...testimonials.slice(0, 6), ...testimonials.slice(0, 6)].map((t, i) => (
+                            <div key={i} className={`t-chip chip-${t.color}`}>
+                                <span className={`chip-dot dot-${t.color}`} />
+                                <span style={{ fontSize: 15 }}>{t.emoji}</span>
+                                <span>{t.text}</span>
+                                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>— {t.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div style={{ overflow: 'hidden' }}>
+                    <div className="mq-track-rev">
+                        {[...testimonials.slice(2), ...testimonials.slice(2)].map((t, i) => (
+                            <div key={i} className={`t-chip chip-${t.color}`}>
+                                <span className={`chip-dot dot-${t.color}`} />
+                                <span style={{ fontSize: 15 }}>{t.emoji}</span>
+                                <span>{t.text}</span>
+                                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>— {t.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
             {/* ── FEATURES ── */}
             <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
