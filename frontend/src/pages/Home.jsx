@@ -1551,7 +1551,7 @@
 //                     </div>
 //                 </div>
 //             </div> */}
-          
+
 
 //             {/* ── HOW IT WORKS ── */}
 //             {/* <div className="section-pad hiw-section" style={{ padding: '100px 0', background: '#fff', position: 'relative', overflow: 'hidden' }}>
@@ -2033,21 +2033,36 @@ export default function Home() {
                 .pill-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
 
                 /* MARQUEE */
+                // .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
+                // .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+                // @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+                // @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+                // .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+                // .t-chip:hover { transform: scale(1.04); }
+                // .chip-purple { background: rgba(83,74,183,0.08);  border-color: rgba(83,74,183,0.25);  color: #3b3580; }
+                // .chip-teal   { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.25); color: #0f6e56; }
+                // .chip-amber  { background: rgba(239,159,39,0.1);  border-color: rgba(239,159,39,0.3);  color: #854F0B; }
+                // .chip-pink   { background: rgba(216,90,48,0.08);  border-color: rgba(216,90,48,0.25);  color: #a33a1a; }
+                // .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+                // .dot-purple { background: #534AB7; box-shadow: 0 0 7px rgba(83,74,183,0.7); }
+                // .dot-teal   { background: #1D9E75; box-shadow: 0 0 7px rgba(29,158,117,0.7); }
+                // .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
+                // .dot-pink   { background: #D85A30; box-shadow: 0 0 7px rgba(216,90,48,0.7); }
                 .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
-                .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
-                @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-                @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-                .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
-                .t-chip:hover { transform: scale(1.04); }
-                .chip-purple { background: rgba(83,74,183,0.08);  border-color: rgba(83,74,183,0.25);  color: #3b3580; }
-                .chip-teal   { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.25); color: #0f6e56; }
-                .chip-amber  { background: rgba(239,159,39,0.1);  border-color: rgba(239,159,39,0.3);  color: #854F0B; }
-                .chip-pink   { background: rgba(216,90,48,0.08);  border-color: rgba(216,90,48,0.25);  color: #a33a1a; }
-                .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-                .dot-purple { background: #534AB7; box-shadow: 0 0 7px rgba(83,74,183,0.7); }
-                .dot-teal   { background: #1D9E75; box-shadow: 0 0 7px rgba(29,158,117,0.7); }
-                .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
-                .dot-pink   { background: #D85A30; box-shadow: 0 0 7px rgba(216,90,48,0.7); }
+    .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+    @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+    .t-chip:hover { transform: scale(1.04); }
+    .chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
+    .chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
+    .chip-amber  { background: rgba(239,159,39,0.25);  border-color: rgba(239,159,39,0.5);  color: #FAC775; }
+    .chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
+    .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
+    .dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
+    .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
+    .dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
 
                 /* FEATURES */
                 .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
@@ -2260,8 +2275,8 @@ export default function Home() {
                 <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
                 <Link to="/register" onClick={() => setMenuOpen(false)} style={{ color: '#534AB7', fontWeight: 700 }}>Get Started →</Link>
             </div>
-                  
-       
+
+
             {/* ── HERO ── */}
             <div className="hero-section" style={{
                 background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 40%,#0f5e48 100%)',
