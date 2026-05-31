@@ -150,3 +150,4 @@ const siteSettingsSchema = new mongoose.Schema({
 const SiteSettings = mongoose.model('SiteSettings', siteSettingsSchema);
 
 module.exports = { User, SubscriptionPlan, Appointment, SessionNote, Payment, Blog, Review };
+module.exports = { User, SubscriptionPlan, Appointment, SessionNote, Payment, Blog, Review, SiteSettings };
