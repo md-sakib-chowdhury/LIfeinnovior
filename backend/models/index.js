@@ -142,5 +142,11 @@ const SessionNote = mongoose.model('SessionNote', sessionNoteSchema);
 const Payment = mongoose.model('Payment', paymentSchema);
 const Blog = mongoose.model('Blog', blogSchema);
 const Review = mongoose.model('Review', reviewSchema);
+const siteSettingsSchema = new mongoose.Schema({
+    key: { type: String, required: true, unique: true },
+    value: { type: mongoose.Schema.Types.Mixed, required: true },
+}, { timestamps: true });
+
+const SiteSettings = mongoose.model('SiteSettings', siteSettingsSchema);
 
 module.exports = { User, SubscriptionPlan, Appointment, SessionNote, Payment, Blog, Review };
