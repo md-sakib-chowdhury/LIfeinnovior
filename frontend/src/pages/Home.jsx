@@ -1958,8 +1958,657 @@
 //         </div>
 //     );
 // }
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+
+
+// const features = [
+//     { icon: '🎥', title: 'Video Therapy', desc: 'Secure HD video sessions from the comfort of your home.', accent: '#E1F5EE', border: '#0F6E56', glow: 'rgba(15,110,86,0.15)', tag: 'Live Sessions' },
+//     { icon: '📅', title: 'Easy Booking', desc: 'Book appointments with licensed psychologists in minutes.', accent: '#EEEDFE', border: '#534AB7', glow: 'rgba(83,74,183,0.18)', tag: 'Instant' },
+//     { icon: '📋', title: 'Session Notes', desc: 'Psychologists maintain detailed, confidential session records.', accent: '#FAEEDA', border: '#854F0B', glow: 'rgba(133,79,11,0.15)', tag: 'Private' },
+//     { icon: '💳', title: 'Flexible Plans', desc: 'Affordable subscription plans for every practice size.', accent: '#FAECE7', border: '#993C1D', glow: 'rgba(153,60,29,0.15)', tag: 'From $29' },
+//     { icon: '🔒', title: 'Fully Secure', desc: 'Your data is encrypted and protected at every step.', accent: '#EAF3DE', border: '#3B6D11', glow: 'rgba(59,109,17,0.15)', tag: 'E2E Encrypted' },
+//     { icon: '📱', title: 'Any Device', desc: 'Works seamlessly on mobile, tablet, and desktop.', accent: '#E6F1FB', border: '#185FA5', glow: 'rgba(24,95,165,0.15)', tag: 'Cross-platform' },
+// ];
+
+// const stats = [
+//     { value: '12,000+', label: 'Patients Helped' },
+//     { value: '800+', label: 'Licensed Psychologists' },
+//     { value: '98%', label: 'Satisfaction Rate' },
+//     { value: '4.9★', label: 'Average Rating' },
+// ];
+
+// // const testimonials = [
+// //     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
+// //     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
+// //     { name: 'Priya K.', text: 'Feels like real in-person therapy', emoji: '💙', color: 'teal' },
+// //     { name: 'Omar S.', text: 'Changed my life in just 4 sessions', emoji: '🌿', color: 'teal' },
+// //     { name: 'Lena W.', text: "The most secure platform I've used", emoji: '🔐', color: 'purple' },
+// //     { name: 'Carlos D.', text: 'Perfect for my busy schedule', emoji: '⚡', color: 'amber' },
+// //     { name: 'Sofia T.', text: 'My anxiety is so much better now', emoji: '🌺', color: 'pink' },
+// //     { name: 'Ravi M.', text: 'Found the perfect specialist within minutes', emoji: '🧠', color: 'purple' },
+// // ];
+// const testimonials = [
+//     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
+//     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
+//     { name: 'Priya K.', text: 'Feels like real in-person therapy', emoji: '💙', color: 'teal' },
+//     { name: 'Omar S.', text: 'Changed my life in just 4 sessions', emoji: '🌿', color: 'teal' },
+//     { name: 'Lena W.', text: "The most secure platform I've used", emoji: '🔐', color: 'purple' },
+//     { name: 'Carlos D.', text: 'Perfect for my busy schedule', emoji: '⚡', color: 'amber' },
+//     { name: 'Sofia T.', text: 'My anxiety is so much better now', emoji: '🌺', color: 'pink' },
+//     { name: 'Ravi M.', text: 'Found the perfect specialist within minutes', emoji: '🧠', color: 'purple' },
+// ];
+
+// const hiwSteps = [
+//     {
+//         step: '01', label: 'Step One', title: 'Find a Psychologist',
+//         desc: 'Browse verified psychologists by specialization, language, and availability.',
+//         tag: '🧠 Browse Profiles', color: '#534AB7', accent: '#EEEDFE', border: '#AFA9EC',
+//         tagColor: '#534AB7', cornerBg: '#EEEDFE', ringBorder: 'rgba(83,74,183,0.3)',
+//     },
+//     {
+//         step: '02', label: 'Step Two', title: 'Book a Session',
+//         desc: 'Choose a time slot that works for you and confirm your booking in seconds.',
+//         tag: '📅 Pick a Time', color: '#1D9E75', accent: '#E1F5EE', border: '#5DCAA5',
+//         tagColor: '#0F6E56', cornerBg: '#E1F5EE', ringBorder: 'rgba(29,158,117,0.3)',
+//     },
+//     {
+//         step: '03', label: 'Step Three', title: 'Start Your Journey',
+//         desc: 'Join a secure video call and take the first step toward better mental health.',
+//         tag: '🎥 Join Session', color: '#EF9F27', accent: '#FAEEDA', border: '#EF9F27',
+//         tagColor: '#854F0B', cornerBg: '#FAEEDA', ringBorder: 'rgba(239,159,39,0.3)',
+//     },
+// ];
+
+// export default function Home() {
+//     const [menuOpen, setMenuOpen] = useState(false);
+//     const [hoveredFeature, setHoveredFeature] = useState(null);
+
+//     return (
+//         <div style={{ fontFamily: "'DM Sans','Sora',sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
+//             <style>{`
+//                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@700;800&display=swap');
+//                 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+//                 html, body, #root { overflow-x: hidden; width: 100%; max-width: 100%; margin: 0; padding: 0; }
+
+//                 .inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; width: 100%; }
+//                 .nav-link { text-decoration: none; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 999px; transition: all 0.2s; white-space: nowrap; }
+//                 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+//                 .hamburger span { display: block; width: 22px; height: 2px; background: #534AB7; border-radius: 2px; transition: all 0.3s; }
+//                 .mobile-menu { display: none; flex-direction: column; background: rgba(250,250,248,0.98); border-bottom: 1px solid #e9e9e5; }
+//                 .mobile-menu.open { display: flex; }
+//                 .mobile-menu a { text-decoration: none; font-size: 15px; font-weight: 500; color: #1a1a1a; padding: 13px 24px; border-bottom: 1px solid #f0f0ec; }
+//                 .hero-title { font-family: 'Sora',sans-serif; font-size: clamp(28px, 5vw, 76px); font-weight: 800; line-height: 1.08; letter-spacing: -2px; color: #fff; }
+//                 .stat-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 20px 16px; text-align: center; backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+//                 .pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
+//                 .pill-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
+
+//                 /* MARQUEE */
+//                 // .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
+//                 // .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+//                 // @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+//                 // @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+//                 // .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+//                 // .t-chip:hover { transform: scale(1.04); }
+//                 // .chip-purple { background: rgba(83,74,183,0.08);  border-color: rgba(83,74,183,0.25);  color: #3b3580; }
+//                 // .chip-teal   { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.25); color: #0f6e56; }
+//                 // .chip-amber  { background: rgba(239,159,39,0.1);  border-color: rgba(239,159,39,0.3);  color: #854F0B; }
+//                 // .chip-pink   { background: rgba(216,90,48,0.08);  border-color: rgba(216,90,48,0.25);  color: #a33a1a; }
+//                 // .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+//                 // .dot-purple { background: #534AB7; box-shadow: 0 0 7px rgba(83,74,183,0.7); }
+//                 // .dot-teal   { background: #1D9E75; box-shadow: 0 0 7px rgba(29,158,117,0.7); }
+//                 // .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
+//                 // .dot-pink   { background: #D85A30; box-shadow: 0 0 7px rgba(216,90,48,0.7); }
+//                 .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
+// .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+// @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+// @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+// .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+// .t-chip:hover { transform: scale(1.04); }
+// .chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
+// .chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
+// .chip-amber  { background: rgba(250,199,117,0.25); border-color: rgba(250,199,117,0.5); color: #FAC775; }
+// .chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
+// .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+// .dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
+// .dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
+// .dot-amber  { background: #FAC775; box-shadow: 0 0 7px rgba(250,199,117,0.7); }
+// .dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
+   
+//                 /* FEATURES */
+//                 .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+//                 .feature-card {
+//                     background: #fff; border-radius: 22px; border: 1.5px solid #f0eff5;
+//                     padding: 30px 26px 28px; position: relative; overflow: hidden; cursor: default;
+//                     transition: transform 0.3s cubic-bezier(.22,1,.36,1), border-color 0.25s, box-shadow 0.3s;
+//                 }
+//                 .feature-card-bar {
+//                     position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+//                     border-radius: 0 0 22px 22px; transform: scaleX(0); transform-origin: left;
+//                     transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+//                 }
+//                 .feature-card:hover .feature-card-bar { transform: scaleX(1); }
+//                 .feature-card:hover .feature-card-blob { opacity: 0.65 !important; transform: scale(1.2); }
+//                 .feature-card:hover .feature-card-icon { transform: scale(1.08) rotate(-3deg); }
+//                 .feature-card-blob {
+//                     position: absolute; bottom: -30px; right: -30px; width: 110px; height: 110px;
+//                     border-radius: 50%; opacity: 0.35;
+//                     transition: opacity 0.3s, transform 0.4s cubic-bezier(.22,1,.36,1);
+//                 }
+//                 .feature-card-icon {
+//                     display: inline-flex; align-items: center; justify-content: center;
+//                     width: 52px; height: 52px; border-radius: 14px; font-size: 26px;
+//                     margin-bottom: 18px; position: relative;
+//                     transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+//                 }
+
+//                 /* HOW IT WORKS */
+//                 .hiw-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; position: relative; }
+//                 .hiw-step-card {
+//                     position: relative; background: #fff; border-radius: 24px; padding: 32px;
+//                     border: 1px solid #e9e9e5; transition: all 0.3s; cursor: default; overflow: hidden;
+//                     box-shadow: 0 4px 24px rgba(0,0,0,0.06); z-index: 1;
+//                 }
+//                 .hiw-step-card:hover { transform: translateY(-8px); }
+//                 .hiw-watermark {
+//                     position: absolute; bottom: -10px; right: 16px;
+//                     font-family: 'Sora',sans-serif; font-size: 100px; font-weight: 900;
+//                     opacity: 0.06; line-height: 1; pointer-events: none; user-select: none;
+//                 }
+//                 .hiw-connector-1 {
+//                     position: absolute; top: 52px; left: calc(33.33% + 20px);
+//                     width: calc(33.33% - 40px); height: 2px;
+//                     background: linear-gradient(90deg, #AFA9EC, #5DCAA5); border-radius: 2px; z-index: 0;
+//                 }
+//                 .hiw-connector-2 {
+//                     position: absolute; top: 52px; left: calc(66.66% + 20px);
+//                     width: calc(33.33% - 40px); height: 2px;
+//                     background: linear-gradient(90deg, #5DCAA5, #EF9F27); border-radius: 2px; z-index: 0;
+//                 }
+
+//                 /* FADE ANIMATIONS */
+//                 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+//                 .fade-up { animation: fadeUp 0.7s ease forwards; }
+//                 .delay-1 { animation-delay: 0.1s; }
+//                 .delay-2 { animation-delay: 0.2s; }
+//                 .delay-3 { animation-delay: 0.3s; }
+//                 .delay-4 { animation-delay: 0.4s; }
+//                 .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; pointer-events: none; }
+
+//                 .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 64px; }
+//                 .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+//                 /* FOOTER */
+//                 .ft-top {
+//                     padding: 64px 48px 48px;
+//                     display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+//                     gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.06);
+//                 }
+//                 .ft-col-label { font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 20px; }
+//                 .ft-link { display: block; font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 12px; cursor: pointer; text-decoration: none; transition: color .2s; width: fit-content; position: relative; }
+//                 .ft-link::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px; background: #5DCAA5; transition: width .25s; }
+//                 .ft-link:hover { color: rgba(255,255,255,0.85); }
+//                 .ft-link:hover::after { width: 100%; }
+//                 .ft-social { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: background .2s, border-color .2s; color: rgba(255,255,255,0.5); text-decoration: none; }
+//                 .ft-social:hover { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); color: #a78bfa; }
+//                 .ft-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+//                 .ft-badge-teal { background: rgba(93,202,165,0.1); color: #5DCAA5; border: 1px solid rgba(93,202,165,0.25); }
+//                 .ft-badge-purple { background: rgba(83,74,183,0.1); color: #9F99E8; border: 1px solid rgba(83,74,183,0.25); }
+//                 .ft-bottom { padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+//                 .ft-legal-link { font-size: 12.5px; color: rgba(255,255,255,0.2); text-decoration: none; cursor: pointer; transition: color .2s; }
+//                 .ft-legal-link:hover { color: rgba(255,255,255,0.55); }
+
+//                 /* RESPONSIVE */
+//                 @media (max-width: 1024px) {
+//                     .inner { padding: 0 28px; }
+//                     .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+//                     .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 48px; }
+//                     .ft-top { grid-template-columns: 1fr 1fr; padding: 48px 28px 40px; gap: 28px; }
+//                     .ft-bottom { padding: 18px 28px; }
+//                 }
+//                 @media (max-width: 768px) {
+//                     .inner { padding: 0 20px; }
+//                     .nav-desktop { display: none !important; }
+//                     .hamburger { display: flex !important; }
+//                     .features-grid { grid-template-columns: repeat(2,1fr); gap: 14px; }
+//                     .hiw-grid { grid-template-columns: 1fr; gap: 16px; }
+//                     .hiw-connector-1, .hiw-connector-2 { display: none !important; }
+//                     .hero-title { font-size: clamp(28px, 6vw, 52px) !important; letter-spacing: -1px !important; }
+//                     .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 40px; }
+//                     .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+//                     .cta-inner { margin: 0 16px 56px !important; padding: 56px 24px !important; border-radius: 24px !important; }
+//                     .cta-btns { flex-direction: column !important; align-items: center !important; gap: 10px !important; }
+//                     .ft-top { grid-template-columns: 1fr 1fr; padding: 40px 20px 32px; gap: 24px; }
+//                     .ft-bottom { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+//                     .section-pad { padding: 72px 0 !important; }
+//                 }
+//                 @media (max-width: 480px) {
+//                     .inner { padding: 0 16px; }
+//                     .features-grid { grid-template-columns: 1fr; gap: 12px; }
+//                     .feature-card { padding: 22px 18px; border-radius: 18px; }
+//                     .stats-grid { grid-template-columns: repeat(2,1fr); gap: 8px; margin-top: 32px; }
+//                     .pill-btn { padding: 11px 18px; font-size: 13.5px; }
+//                     .hero-btns { flex-direction: column; align-items: center; }
+//                     .cta-inner { margin: 0 12px 48px !important; padding: 48px 18px !important; border-radius: 20px !important; }
+//                     .ft-top { grid-template-columns: 1fr; padding: 36px 16px 28px; gap: 24px; }
+//                     .ft-bottom { padding: 14px 16px; }
+//                     .section-pad { padding: 60px 0 !important; }
+//                 }
+//                 @media (max-width: 360px) {
+//                     .inner { padding: 0 12px; }
+//                     .hero-title { font-size: 26px !important; letter-spacing: -0.5px !important; }
+//                     .pill-btn { padding: 10px 14px; font-size: 13px; }
+//                     .stats-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+//                     .feature-card { padding: 18px 14px; }
+//                     .cta-inner { margin: 0 8px 40px !important; padding: 40px 14px !important; border-radius: 16px !important; }
+//                     .ft-top { padding: 28px 12px 24px; }
+//                     .section-pad { padding: 48px 0 !important; }
+//                 }
+//             `}</style>
+//             {/* ── NAV ── */}
+//             <nav style={{
+//                 background: 'rgba(250,250,248,0.9)',
+//                 backdropFilter: 'blur(16px)',
+//                 height: 64,
+//                 position: 'sticky',
+//                 top: 0,
+//                 zIndex: 100,
+//                 width: '100vw',
+//                 marginLeft: '50%',
+//                 transform: 'translateX(-50%)',
+//                 borderBottom: 'none',
+//             }}>
+//                 <div style={{
+//                     height: '100%',
+//                     display: 'flex',
+//                     alignItems: 'center',
+//                     justifyContent: 'space-between',
+//                     width: '100%',
+//                     borderBottom: '1px solid #e9e9e5',
+//                     padding: '0 40px',
+//                 }}>
+//                     <Link to="/" style={{ textDecoration: 'none', fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#534AB7 0%,#1D9E75 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.5px', flexShrink: 0 }}>
+//                         LifeInnovior
+//                     </Link>
+
+//                     <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+//                         <Link to="/find-psychologist" className="nav-link"
+//                             style={{ color: '#fff', background: 'linear-gradient(135deg, #4F46E5, #7C3AED)', boxShadow: '0 4px 12px rgba(79,70,229,0.3)' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(79,70,229,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(79,70,229,0.3)'; }}>
+//                             🧠 Find Psychologist
+//                         </Link>
+
+//                         <Link to="/blog" className="nav-link"
+//                             style={{ color: '#fff', background: 'linear-gradient(135deg, #0EA5E9, #06B6D4)', boxShadow: '0 4px 12px rgba(6,182,212,0.3)' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(6,182,212,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(6,182,212,0.3)'; }}>
+//                             📰 Blog
+//                         </Link>
+
+//                         <Link to="/pricing" className="nav-link"
+//                             style={{ color: '#fff', background: 'linear-gradient(135deg, #F59E0B, #EF4444)', boxShadow: '0 4px 12px rgba(245,158,11,0.3)' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(245,158,11,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(245,158,11,0.3)'; }}>
+//                             🏷️ Pricing
+//                         </Link>
+
+//                         <div style={{ width: 1, height: 20, background: '#e9e9e5', margin: '0 8px' }} />
+
+//                         <Link to="/login" className="nav-link"
+//                             style={{ color: '#4F46E5', background: '#EEF2FF', border: '1.5px solid #C7D2FE' }}
+//                             onMouseEnter={e => { e.currentTarget.style.background = '#E0E7FF'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.background = '#EEF2FF'; e.currentTarget.style.transform = 'none'; }}>
+//                             Login
+//                         </Link>
+
+//                         <Link to="/register"
+//                             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 600, padding: '8px 20px', borderRadius: 10, background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 4px 12px rgba(16,185,129,0.3)', border: 'none' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,185,129,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(16,185,129,0.3)'; }}>
+//                             Get Started →
+//                         </Link>
+//                     </div>
+
+//                     <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+//                         <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+//                         <span style={{ opacity: menuOpen ? 0 : 1 }} />
+//                         <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+//                     </button>
+//                 </div>
+//             </nav>
+
+//             {/* Mobile menu */}
+//             <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+//                 <Link to="/find-psychologist" onClick={() => setMenuOpen(false)}>🧠 Find Psychologist</Link>
+//                 <Link to="/blog" onClick={() => setMenuOpen(false)}>📰 Blog</Link>
+//                 <Link to="/pricing" onClick={() => setMenuOpen(false)}>🏷️ Pricing</Link>
+//                 <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+//                 <Link to="/register" onClick={() => setMenuOpen(false)} style={{ color: '#534AB7', fontWeight: 700 }}>Get Started →</Link>
+//             </div>
+
+
+//             {/* ── HERO ── */}
+//             <div className="hero-section" style={{
+//                 background: 'linear-gradient(135deg,#1e1752 0%,#2d2490 40%,#0f5e48 100%)',
+//                 padding: '100px 0 80px', position: 'relative', overflow: 'hidden',
+//                 minHeight: '88vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+//                 width: '95vw', marginLeft: '50%', transform: 'translateX(-50%)',
+//             }}>
+//                 <div className="blob" style={{ width: 500, height: 500, background: '#534AB7', top: -100, right: -100, opacity: 0.3 }} />
+//                 <div className="blob" style={{ width: 400, height: 400, background: '#1D9E75', bottom: -80, left: 50, opacity: 0.25 }} />
+//                 <div className="blob" style={{ width: 300, height: 300, background: '#D85A30', bottom: 50, right: 200, opacity: 0.15 }} />
+//                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px)', backgroundSize: '32px 32px', pointerEvents: 'none' }} />
+//                 <div className="inner" style={{ position: 'relative', zIndex: 1 }}>
+//                     <div style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto' }}>
+//                         <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 999, padding: '6px 16px', marginBottom: 28, fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.85)' }}>
+//                             <span style={{ width: 7, height: 7, background: '#5DCAA5', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 6px #5DCAA5' }} />
+//                             Trusted by 12,000+ patients worldwide
+//                         </div>
+//                         <h1 className="hero-title fade-up delay-1">
+//                             Mental Health Care,<br />
+//                             <span style={{ background: 'linear-gradient(90deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Made Accessible</span>
+//                         </h1>
+//                         <p className="fade-up delay-2" style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', margin: '24px auto 40px', maxWidth: 520, lineHeight: 1.7, fontWeight: 400 }}>
+//                             Connect with licensed psychologists through secure video sessions. Professional care from the comfort of your home.
+//                         </p>
+//                         <div className="hero-btns fade-up delay-3">
+//                             <Link to="/find-psychologist" className="pill-btn" style={{ background: '#fff', color: '#534AB7' }}>🧠 Find a Psychologist</Link>
+//                             <Link to="/register" className="pill-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Join as Psychologist →</Link>
+//                         </div>
+//                         <div className="stats-grid fade-up delay-4">
+//                             {stats.map(s => (
+//                                 <div key={s.label} className="stat-card">
+//                                     <div className="stat-value" style={{ fontSize: 28, fontFamily: 'Sora,sans-serif', fontWeight: 800, color: '#fff' }}>{s.value}</div>
+//                                     <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontWeight: 500, lineHeight: 1.4 }}>{s.label}</div>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* ── MARQUEE ── */}
+//             {/* <div style={{
+//                 position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
+//                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
+//                 width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
+//             }}> */}
+//             <div style={{
+//                 position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
+//                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
+//                 width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
+//                 marginTop: '60px',
+//                 borderRadius: '24px',
+//             }}>
+//                 <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to right, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+//                 <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, background: 'linear-gradient(to left, #1a1740, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+//                 <div style={{ textAlign: 'center', fontSize: 10.5, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(174,167,236,0.5)', marginBottom: 18, position: 'relative', zIndex: 3 }}>
+//                     What our patients are saying
+//                 </div>
+//                 <div style={{ overflow: 'hidden', marginBottom: 10 }}>
+//                     <div className="mq-track-fwd">
+//                         {[...testimonials.slice(0, 6), ...testimonials.slice(0, 6)].map((t, i) => (
+//                             <div key={i} className={`t-chip chip-${t.color}`}>
+//                                 <span className={`chip-dot dot-${t.color}`} />
+//                                 <span style={{ fontSize: 15 }}>{t.emoji}</span>
+//                                 <span>{t.text}</span>
+//                                 <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>— {t.name}</span>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//                 <div style={{ overflow: 'hidden' }}>
+//                     <div className="mq-track-rev">
+//                         {[...testimonials.slice(2), ...testimonials.slice(2)].map((t, i) => (
+//                             <div key={i} className={`t-chip chip-${t.color}`}>
+//                                 <span className={`chip-dot dot-${t.color}`} />
+//                                 <span style={{ fontSize: 15 }}>{t.emoji}</span>
+//                                 <span>{t.text}</span>
+//                                 <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>— {t.name}</span>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+          
+
+//             {/* ── FEATURES ── */}
+//             <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
+//                 <div className="inner">
+//                     <div style={{ textAlign: 'center', marginBottom: 60 }}>
+//                         <span style={{ display: 'inline-block', background: '#EEEDFE', color: '#534AB7', fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 999, marginBottom: 16, letterSpacing: '0.5px', textTransform: 'uppercase' }}>Why LifeInnovior</span>
+//                         <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 40, fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>Everything You Need</h2>
+//                         <p style={{ color: '#6b7280', fontSize: 17, maxWidth: 480, margin: '0 auto' }}>A complete platform for modern mental health care</p>
+//                     </div>
+//                     <div className="features-grid">
+//                         {features.map((f, i) => (
+//                             <div
+//                                 key={f.title}
+//                                 className="feature-card"
+//                                 style={{
+//                                     borderColor: hoveredFeature === i ? f.border + '55' : '#f0eff5',
+//                                     boxShadow: hoveredFeature === i ? `0 12px 40px ${f.glow}, 0 2px 8px rgba(0,0,0,0.04)` : '0 2px 8px rgba(0,0,0,0.03)',
+//                                     transform: hoveredFeature === i ? 'translateY(-6px)' : 'translateY(0)',
+//                                 }}
+//                                 onMouseEnter={() => setHoveredFeature(i)}
+//                                 onMouseLeave={() => setHoveredFeature(null)}
+//                             >
+//                                 <div className="feature-card-blob" style={{ background: f.accent }} />
+//                                 <div className="feature-card-icon" style={{ background: f.accent, border: `1px solid ${f.border}` }}>{f.icon}</div>
+//                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+//                                     <h3 style={{ fontSize: 17, fontWeight: 600 }}>{f.title}</h3>
+//                                     <span style={{ fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999, background: f.accent, color: f.border, border: `1px solid ${f.border}` }}>{f.tag}</span>
+//                                 </div>
+//                                 <p style={{ color: '#6b7280', fontSize: 14.5, lineHeight: 1.7 }}>{f.desc}</p>
+//                                 <div className="feature-card-bar" style={{ background: f.border }} />
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* ── HOW IT WORKS ── */}
+//             <div className="section-pad" style={{
+//                 padding: '100px 0',
+//                 background: 'linear-gradient(180deg, #fff 0%, #F5F3FF 50%, #fff 100%)',
+//                 position: 'relative', overflow: 'hidden',
+//             }}>
+//                 <div style={{ position: 'absolute', top: -100, left: '50%', transform: 'translateX(-50%)', width: 800, height: 400, background: 'radial-gradient(ellipse, rgba(83,74,183,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+//                 <div className="inner">
+//                     <div style={{ textAlign: 'center', marginBottom: 80 }}>
+//                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg, #EDE9FE, #E1F5EE)', color: '#534AB7', fontSize: 11.5, fontWeight: 700, padding: '7px 18px', borderRadius: 999, marginBottom: 20, letterSpacing: '1px', textTransform: 'uppercase', border: '1px solid rgba(83,74,183,0.15)' }}>
+//                             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #534AB7, #1D9E75)', display: 'inline-block' }} />
+//                             Simple Process
+//                         </span>
+//                         <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 44, fontWeight: 800, letterSpacing: '-1.5px', color: '#111', marginBottom: 14, lineHeight: 1.15 }}>
+//                             How It <span style={{ background: 'linear-gradient(135deg, #534AB7, #1D9E75)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Works</span>
+//                         </h2>
+//                         <p style={{ color: '#6b7280', fontSize: 17, maxWidth: 460, margin: '0 auto', lineHeight: 1.7 }}>Three simple steps to start your mental health journey today</p>
+//                     </div>
+//                     <div className="hiw-grid">
+//                         <div className="hiw-connector-1" />
+//                         <div className="hiw-connector-2" />
+//                         {hiwSteps.map((s) => (
+//                             <div key={s.step} className="hiw-step-card"
+//                                 onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 20px 48px ${s.color}25`; e.currentTarget.style.borderColor = s.border; }}
+//                                 onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'; e.currentTarget.style.borderColor = '#e9e9e5'; }}
+//                             >
+//                                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${s.color}, ${s.color}80)`, borderRadius: '24px 24px 0 0' }} />
+//                                 <div style={{ position: 'absolute', top: 0, right: 0, width: 100, height: 100, borderRadius: '0 24px 0 100px', background: s.cornerBg, opacity: 0.5, pointerEvents: 'none' }} />
+//                                 <div style={{ position: 'relative', display: 'inline-flex', marginBottom: 24 }}>
+//                                     <div style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: `2px dashed ${s.ringBorder}` }} />
+//                                     <div style={{ width: 64, height: 64, borderRadius: '50%', background: `linear-gradient(135deg, ${s.color}, ${s.color}CC)`, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Sora,sans-serif', fontSize: 22, fontWeight: 800, position: 'relative', zIndex: 1, boxShadow: `0 12px 32px ${s.color}50` }}>
+//                                         {s.step}
+//                                     </div>
+//                                 </div>
+//                                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: s.color, marginBottom: 10 }}>{s.label}</div>
+//                                 <h3 style={{ fontFamily: 'Sora,sans-serif', fontSize: 20, fontWeight: 700, color: '#111', marginBottom: 12, lineHeight: 1.3 }}>{s.title}</h3>
+//                                 <p style={{ color: '#6b7280', fontSize: 14.5, lineHeight: 1.8, marginBottom: 20 }}>{s.desc}</p>
+//                                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 600, padding: '6px 14px', borderRadius: 999, background: s.accent, color: s.tagColor, border: `1px solid ${s.border}` }}>{s.tag}</div>
+//                                 <div className="hiw-watermark" style={{ color: s.color }}>{s.step}</div>
+//                             </div>
+//                         ))}
+//                     </div>
+//                     <div style={{ textAlign: 'center', marginTop: 60 }}>
+//                         <p style={{ color: '#9CA3AF', fontSize: 14, marginBottom: 16 }}>Ready to start? It only takes 2 minutes</p>
+//                         <Link to="/register"
+//                             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', borderRadius: 14, background: 'linear-gradient(135deg, #534AB7, #1D9E75)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 15, boxShadow: '0 8px 24px rgba(83,74,183,0.3)', transition: 'all 0.2s' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(83,74,183,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(83,74,183,0.3)'; }}>
+//                             Get Started Free →
+//                         </Link>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* ── CTA ── */}
+//             <div className="cta-inner" style={{
+//                 margin: '0 48px 80px', borderRadius: 32,
+//                 background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+//                 padding: '90px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden',
+//             }}>
+//                 <div style={{ position: 'absolute', width: 400, height: 400, background: 'radial-gradient(circle, rgba(83,74,183,0.6) 0%, transparent 70%)', top: -100, right: -80, borderRadius: '50%', filter: 'blur(40px)' }} />
+//                 <div style={{ position: 'absolute', width: 300, height: 300, background: 'radial-gradient(circle, rgba(29,158,117,0.5) 0%, transparent 70%)', bottom: -80, left: 60, borderRadius: '50%', filter: 'blur(40px)' }} />
+//                 <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+//                 <div style={{ position: 'absolute', inset: 0, borderRadius: 32, border: '1px solid rgba(255,255,255,0.08)' }} />
+//                 <div style={{ position: 'relative', zIndex: 1 }}>
+//                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 999, padding: '6px 18px', fontSize: 12, fontWeight: 700, color: '#A5B4FC', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: 28 }}>
+//                         <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
+//                         Free 14-day trial • No credit card required
+//                     </div>
+//                     <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 52, fontWeight: 800, color: '#fff', letterSpacing: '-2px', marginBottom: 6, lineHeight: 1.1 }}>Ready to Transform</h2>
+//                     <h2 style={{ fontFamily: 'Sora,sans-serif', fontSize: 52, fontWeight: 800, letterSpacing: '-2px', marginBottom: 20, lineHeight: 1.1, background: 'linear-gradient(135deg, #818CF8, #34D399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Mental Healthcare?</h2>
+//                     <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.55)', maxWidth: 460, margin: '0 auto 48px', lineHeight: 1.7 }}>
+//                         Join thousands of psychologists and patients on LifeInnovior — the most trusted mental health platform.
+//                     </p>
+//                     <div style={{ display: 'flex', justifyContent: 'center', gap: 48, marginBottom: 48, flexWrap: 'wrap' }}>
+//                         {[{ value: '800+', label: 'Psychologists' }, { value: '10k+', label: 'Patients' }, { value: '4.9★', label: 'Rating' }].map(stat => (
+//                             <div key={stat.label} style={{ textAlign: 'center' }}>
+//                                 <div style={{ fontSize: 28, fontWeight: 800, color: '#fff', fontFamily: 'Sora,sans-serif' }}>{stat.value}</div>
+//                                 <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>{stat.label}</div>
+//                             </div>
+//                         ))}
+//                     </div>
+//                     <div className="cta-btns" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+//                         <Link to="/register"
+//                             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 700, padding: '16px 36px', borderRadius: 14, background: 'linear-gradient(135deg, #818CF8, #4F46E5)', color: '#fff', textDecoration: 'none', boxShadow: '0 8px 32px rgba(79,70,229,0.4)', border: 'none', transition: 'all 0.2s' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(79,70,229,0.5)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(79,70,229,0.4)'; }}>
+//                             🚀 Create Free Account
+//                         </Link>
+//                         <Link to="/find-psychologist"
+//                             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 700, padding: '16px 36px', borderRadius: 14, background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', textDecoration: 'none', boxShadow: '0 8px 32px rgba(16,185,129,0.3)', border: 'none', transition: 'all 0.2s' }}
+//                             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(16,185,129,0.4)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(16,185,129,0.3)'; }}>
+//                             🧠 Find a Psychologist
+//                         </Link>
+//                         <Link to="/pricing"
+//                             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 600, padding: '16px 36px', borderRadius: 14, background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.8)', textDecoration: 'none', border: '1.5px solid rgba(255,255,255,0.15)', transition: 'all 0.2s' }}
+//                             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+//                             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'none'; }}>
+//                             View Pricing →
+//                         </Link>
+//                     </div>
+//                     <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 40, flexWrap: 'wrap' }}>
+//                         {['🔒 HIPAA Compliant', '🎥 HD Video Sessions', '💳 Flexible Plans', '📱 All Devices'].map(badge => (
+//                             <div key={badge} style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{badge}</div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* ── FOOTER ── */}
+//             {/* <footer style={{ background: '#0d0d14', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+//                 <div className="ft-top">
+//                     <div>
+//                         <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
+//                         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
+//                         <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
+//                             <span className="ft-badge ft-badge-teal">✦ HIPAA Compliant</span>
+//                             <span className="ft-badge ft-badge-purple">✦ E2E Encrypted</span>
+//                         </div>
+//                         <div style={{ display: 'flex', gap: 8 }}>
+//                             {['𝕏', 'in', '◎', 'f'].map((icon, i) => (
+//                                 <a key={i} className="ft-social">{icon}</a>
+//                             ))}
+//                         </div>
+//                     </div>
+//                     {[
+//                         { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
+//                         { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
+//                         { label: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'] },
+//                     ].map(col => (
+//                         <div key={col.label}>
+//                             <div className="ft-col-label">{col.label}</div>
+//                             {col.links.map(l => <a key={l} className="ft-link">{l}</a>)}
+//                         </div>
+//                     ))}
+//                 </div>
+//                 <div className="ft-bottom">
+//                     <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
+//                     <div style={{ display: 'flex', gap: 20 }}>
+//                         {['Privacy Policy', 'Terms of Service', 'Cookie Settings'].map(l => (
+//                             <a key={l} className="ft-legal-link">{l}</a>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </footer> */}
+//             {/* ── FOOTER ── */}
+//             <footer style={{
+//                 background: '#0d0d14',
+//                 borderTop: '1px solid rgba(255,255,255,0.07)',
+//                 width: '95vw',
+//                 marginLeft: '50%',
+//                 transform: 'translateX(-50%)',
+//             }}>
+//                 {/* top grid */}
+//                 <div className="ft-top">
+//                     {/* Brand */}
+//                     <div>
+//                         <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
+//                         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
+//                         <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
+//                             <span className="ft-badge ft-badge-teal">✦ HIPAA Compliant</span>
+//                             <span className="ft-badge ft-badge-purple">✦ E2E Encrypted</span>
+//                         </div>
+//                         <div style={{ display: 'flex', gap: 8 }}>
+//                             {['𝕏', 'in', '◎', 'f'].map((icon, i) => (
+//                                 <a key={i} className="ft-social">{icon}</a>
+//                             ))}
+//                         </div>
+//                     </div>
+
+//                     {/* Links */}
+//                     {[
+//                         { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
+//                         { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
+//                         { label: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'] },
+//                     ].map(col => (
+//                         <div key={col.label}>
+//                             <div className="ft-col-label">{col.label}</div>
+//                             {col.links.map(l => <a key={l} className="ft-link">{l}</a>)}
+//                         </div>
+//                     ))}
+//                 </div>
+
+//                 {/* bottom bar */}
+//                 <div className="ft-bottom">
+//                     <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
+//                     <div style={{ display: 'flex', gap: 20 }}>
+//                         {['Privacy Policy', 'Terms of Service', 'Cookie Settings'].map(l => (
+//                             <a key={l} className="ft-legal-link">{l}</a>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </footer>
+//         </div>
+//     );
+// }
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getSettings } from '../utils/api';
+
 
 const features = [
     { icon: '🎥', title: 'Video Therapy', desc: 'Secure HD video sessions from the comfort of your home.', accent: '#E1F5EE', border: '#0F6E56', glow: 'rgba(15,110,86,0.15)', tag: 'Live Sessions' },
@@ -1977,16 +2626,6 @@ const stats = [
     { value: '4.9★', label: 'Average Rating' },
 ];
 
-// const testimonials = [
-//     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
-//     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
-//     { name: 'Priya K.', text: 'Feels like real in-person therapy', emoji: '💙', color: 'teal' },
-//     { name: 'Omar S.', text: 'Changed my life in just 4 sessions', emoji: '🌿', color: 'teal' },
-//     { name: 'Lena W.', text: "The most secure platform I've used", emoji: '🔐', color: 'purple' },
-//     { name: 'Carlos D.', text: 'Perfect for my busy schedule', emoji: '⚡', color: 'amber' },
-//     { name: 'Sofia T.', text: 'My anxiety is so much better now', emoji: '🌺', color: 'pink' },
-//     { name: 'Ravi M.', text: 'Found the perfect specialist within minutes', emoji: '🧠', color: 'purple' },
-// ];
 const testimonials = [
     { name: 'Aisha R.', text: 'Finally found a therapist I connect with', emoji: '🌸', color: 'purple' },
     { name: 'James M.', text: 'Booking was effortless. 10/10 experience', emoji: '⭐', color: 'amber' },
@@ -2023,6 +2662,19 @@ export default function Home() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [hoveredFeature, setHoveredFeature] = useState(null);
 
+    // ── Step 8: Dynamic settings ──
+    const [siteData, setSiteData] = useState(null);
+
+    useEffect(() => {
+        getSettings().then(r => setSiteData(r.data.data)).catch(() => { });
+    }, []);
+
+    const currentStats = siteData?.stats || stats;
+    const currentFeatures = siteData?.features || features;
+    const currentSteps = siteData?.steps || hiwSteps;
+    const currentHero = siteData?.hero || { badge: 'Trusted by 12,000+ patients worldwide' };
+    // ─────────────────────────────
+
     return (
         <div style={{ fontFamily: "'DM Sans','Sora',sans-serif", background: '#FAFAF8', color: '#1a1a1a', overflowX: 'hidden', width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
             <style>{`
@@ -2042,38 +2694,22 @@ export default function Home() {
                 .pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
                 .pill-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
 
-                /* MARQUEE */
-                // .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
-                // .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
-                // @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-                // @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-                // .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
-                // .t-chip:hover { transform: scale(1.04); }
-                // .chip-purple { background: rgba(83,74,183,0.08);  border-color: rgba(83,74,183,0.25);  color: #3b3580; }
-                // .chip-teal   { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.25); color: #0f6e56; }
-                // .chip-amber  { background: rgba(239,159,39,0.1);  border-color: rgba(239,159,39,0.3);  color: #854F0B; }
-                // .chip-pink   { background: rgba(216,90,48,0.08);  border-color: rgba(216,90,48,0.25);  color: #a33a1a; }
-                // .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-                // .dot-purple { background: #534AB7; box-shadow: 0 0 7px rgba(83,74,183,0.7); }
-                // .dot-teal   { background: #1D9E75; box-shadow: 0 0 7px rgba(29,158,117,0.7); }
-                // .dot-amber  { background: #EF9F27; box-shadow: 0 0 7px rgba(239,159,39,0.7); }
-                // .dot-pink   { background: #D85A30; box-shadow: 0 0 7px rgba(216,90,48,0.7); }
                 .mq-track-fwd { display: flex; gap: 10px; width: max-content; animation: mq-fwd 28s linear infinite; }
-.mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
-@keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-.t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
-.t-chip:hover { transform: scale(1.04); }
-.chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
-.chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
-.chip-amber  { background: rgba(250,199,117,0.25); border-color: rgba(250,199,117,0.5); color: #FAC775; }
-.chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
-.chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
-.dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
-.dot-amber  { background: #FAC775; box-shadow: 0 0 7px rgba(250,199,117,0.7); }
-.dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
-   
+                .mq-track-rev { display: flex; gap: 10px; width: max-content; animation: mq-rev 32s linear infinite; }
+                @keyframes mq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+                @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+                .t-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-size: 13px; font-weight: 500; border: 1px solid; transition: transform .2s; }
+                .t-chip:hover { transform: scale(1.04); }
+                .chip-purple { background: rgba(174,167,236,0.25); border-color: rgba(174,167,236,0.5); color: #CECBF6; }
+                .chip-teal   { background: rgba(93,202,165,0.25);  border-color: rgba(93,202,165,0.5);  color: #9FE1CB; }
+                .chip-amber  { background: rgba(250,199,117,0.25); border-color: rgba(250,199,117,0.5); color: #FAC775; }
+                .chip-pink   { background: rgba(240,153,123,0.25); border-color: rgba(240,153,123,0.5); color: #F5C4B3; }
+                .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+                .dot-purple { background: #AFA9EC; box-shadow: 0 0 7px rgba(174,167,236,0.7); }
+                .dot-teal   { background: #5DCAA5; box-shadow: 0 0 7px rgba(93,202,165,0.7); }
+                .dot-amber  { background: #FAC775; box-shadow: 0 0 7px rgba(250,199,117,0.7); }
+                .dot-pink   { background: #F0997B; box-shadow: 0 0 7px rgba(240,153,123,0.7); }
+
                 /* FEATURES */
                 .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
                 .feature-card {
@@ -2302,7 +2938,7 @@ export default function Home() {
                     <div style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto' }}>
                         <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 999, padding: '6px 16px', marginBottom: 28, fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.85)' }}>
                             <span style={{ width: 7, height: 7, background: '#5DCAA5', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 6px #5DCAA5' }} />
-                            Trusted by 12,000+ patients worldwide
+                            {currentHero.badge}
                         </div>
                         <h1 className="hero-title fade-up delay-1">
                             Mental Health Care,<br />
@@ -2316,7 +2952,7 @@ export default function Home() {
                             <Link to="/register" className="pill-btn" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Join as Psychologist →</Link>
                         </div>
                         <div className="stats-grid fade-up delay-4">
-                            {stats.map(s => (
+                            {currentStats.map(s => (
                                 <div key={s.label} className="stat-card">
                                     <div className="stat-value" style={{ fontSize: 28, fontFamily: 'Sora,sans-serif', fontWeight: 800, color: '#fff' }}>{s.value}</div>
                                     <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', fontWeight: 500, lineHeight: 1.4 }}>{s.label}</div>
@@ -2328,11 +2964,6 @@ export default function Home() {
             </div>
 
             {/* ── MARQUEE ── */}
-            {/* <div style={{
-                position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
-                borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
-                width: '95vw', maxWidth: '100vw', marginLeft: '50%', transform: 'translateX(-50%)', boxSizing: 'border-box',
-            }}> */}
             <div style={{
                 position: 'relative', background: '#1a1740', padding: '28px 0', overflow: 'hidden',
                 borderTop: '1px solid #2d2860', borderBottom: '1px solid #2d2860',
@@ -2370,7 +3001,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-          
 
             {/* ── FEATURES ── */}
             <div className="section-pad" style={{ padding: '100px 0', background: '#FAFAF8' }}>
@@ -2381,7 +3011,7 @@ export default function Home() {
                         <p style={{ color: '#6b7280', fontSize: 17, maxWidth: 480, margin: '0 auto' }}>A complete platform for modern mental health care</p>
                     </div>
                     <div className="features-grid">
-                        {features.map((f, i) => (
+                        {currentFeatures.map((f, i) => (
                             <div
                                 key={f.title}
                                 className="feature-card"
@@ -2428,7 +3058,7 @@ export default function Home() {
                     <div className="hiw-grid">
                         <div className="hiw-connector-1" />
                         <div className="hiw-connector-2" />
-                        {hiwSteps.map((s) => (
+                        {currentSteps.map((s) => (
                             <div key={s.step} className="hiw-step-card"
                                 onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 20px 48px ${s.color}25`; e.currentTarget.style.borderColor = s.border; }}
                                 onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'; e.currentTarget.style.borderColor = '#e9e9e5'; }}
@@ -2518,42 +3148,6 @@ export default function Home() {
             </div>
 
             {/* ── FOOTER ── */}
-            {/* <footer style={{ background: '#0d0d14', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                <div className="ft-top">
-                    <div>
-                        <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
-                        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
-                        <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
-                            <span className="ft-badge ft-badge-teal">✦ HIPAA Compliant</span>
-                            <span className="ft-badge ft-badge-purple">✦ E2E Encrypted</span>
-                        </div>
-                        <div style={{ display: 'flex', gap: 8 }}>
-                            {['𝕏', 'in', '◎', 'f'].map((icon, i) => (
-                                <a key={i} className="ft-social">{icon}</a>
-                            ))}
-                        </div>
-                    </div>
-                    {[
-                        { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
-                        { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
-                        { label: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'] },
-                    ].map(col => (
-                        <div key={col.label}>
-                            <div className="ft-col-label">{col.label}</div>
-                            {col.links.map(l => <a key={l} className="ft-link">{l}</a>)}
-                        </div>
-                    ))}
-                </div>
-                <div className="ft-bottom">
-                    <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
-                    <div style={{ display: 'flex', gap: 20 }}>
-                        {['Privacy Policy', 'Terms of Service', 'Cookie Settings'].map(l => (
-                            <a key={l} className="ft-legal-link">{l}</a>
-                        ))}
-                    </div>
-                </div>
-            </footer> */}
-            {/* ── FOOTER ── */}
             <footer style={{
                 background: '#0d0d14',
                 borderTop: '1px solid rgba(255,255,255,0.07)',
@@ -2561,9 +3155,7 @@ export default function Home() {
                 marginLeft: '50%',
                 transform: 'translateX(-50%)',
             }}>
-                {/* top grid */}
                 <div className="ft-top">
-                    {/* Brand */}
                     <div>
                         <div style={{ fontFamily: 'Sora,sans-serif', fontWeight: 800, fontSize: 22, background: 'linear-gradient(135deg,#9F99E8,#5DCAA5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 12, display: 'inline-block' }}>LifeInnovior</div>
                         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)', lineHeight: 1.75, maxWidth: 240, marginBottom: 20 }}>Modern mental health care for everyone, everywhere — secure, affordable, and always available.</p>
@@ -2578,7 +3170,6 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* Links */}
                     {[
                         { label: 'Platform', links: ['Find Psychologist', 'How It Works', 'Pricing', 'For Therapists'] },
                         { label: 'Company', links: ['About Us', 'Blog', 'Careers', 'Press Kit'] },
@@ -2591,7 +3182,6 @@ export default function Home() {
                     ))}
                 </div>
 
-                {/* bottom bar */}
                 <div className="ft-bottom">
                     <span style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} LifeInnovior. All rights reserved.</span>
                     <div style={{ display: 'flex', gap: 20 }}>
