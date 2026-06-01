@@ -27,6 +27,7 @@ import PatientDashboard from './pages/Patient/Dashboard';
 import PatientAppointments from './pages/Patient/Appointments';
 import PatientSessions from './pages/Patient/Sessions';
 import VideoCall from './pages/VideoCall';
+import SiteSettings from './pages/Admin/SiteSettings';
 
 const ProtectedRoute = ({ children, roles }) => {
   const { user, loading } = useAuth();
@@ -79,6 +80,7 @@ function App() {
           <Route path="/patient/sessions" element={<ProtectedRoute roles={['patient']}><PatientSessions /></ProtectedRoute>} />
 
           <Route path="/video/:appointmentId" element={<ProtectedRoute><VideoCall /></ProtectedRoute>} />
+          <Route path="/admin/settings" element={<ProtectedRoute roles={['superadmin']}><SiteSettings /></ProtectedRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
