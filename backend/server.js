@@ -21,6 +21,7 @@ app.use('/api/sessions', require('./routes/session.routes'));
 app.use('/api/payments', require('./routes/payment.routes'));
 app.use('/api/blog', require('./routes/blog.routes'));
 app.use('/api/video', require('./routes/video.routes'));
+app.use('/api/settings', require('./routes/settings.routes'));
 
 app.get('/', (req, res) => res.json({ message: 'LifeInnovior API Running ✅' }));
 
