@@ -189,6 +189,7 @@ const adminNav = [{
         { to: '/admin/plans', icon: FiList, label: 'Subscription Plans', color: '#F59E0B' },
         { to: '/admin/payments', icon: FiDollarSign, label: 'Payments', color: '#10B981' },
         { to: '/admin/blogs', icon: FiBook, label: 'Blog Posts', color: '#EF4444' },
+        { to: '/admin/settings', icon: FiSettings, label: 'Site Settings', color: '#10B981' },
     ]
 }];
 
