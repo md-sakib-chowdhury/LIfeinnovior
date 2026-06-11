@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: '/api' });
+const API = axios.create({
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+});
 
 API.interceptors.request.use((config) => {
     const token = localStorage.getItem('lifeinnovior_token');
@@ -61,7 +63,6 @@ export const updatePlan = (id, data) => API.put(`/admin/plans/${id}`, data);
 export const deletePlan = (id) => API.delete(`/admin/plans/${id}`);
 export const getAllPayments = (params) => API.get('/admin/payments', { params });
 
-// Site Settings
 export const getSettings = () => API.get('/settings');
 export const getSetting = (key) => API.get(`/settings/${key}`);
 export const saveSetting = (key, value) => API.post('/settings', { key, value });
